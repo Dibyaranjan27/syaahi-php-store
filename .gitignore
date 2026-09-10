@@ -1,0 +1,22 @@
+# Environment
+.env
+
+# Uploads
+src/uploads/products/*
+!src/uploads/products/.gitkeep
+
+# Database volume
+db_data/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store

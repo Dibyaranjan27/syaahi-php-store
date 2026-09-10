@@ -1,0 +1,1406 @@
+/**
+ * ═══════════════════════════════════════════════════════
+ *  SYAAHI — Manga/Anime Theme
+ *  Pastel palette • Carter One + Nunito + WindSong • Kawaii design
+ * ═══════════════════════════════════════════════════════
+ */
+
+/* ============================================
+   CSS Variables (Color Palette)
+   ============================================ */
+:root {
+    --lavender: #B8A9E8;
+    --lavender-dark: #9B8AD4;
+    --lavender-light: #D4CBF0;
+    --sakura: #FFB7C5;
+    --sakura-dark: #F09AAD;
+    --sakura-light: #FFD4DE;
+    --sky-blue: #87CEEB;
+    --sky-blue-light: #B0E0F0;
+    --mint: #98D8C8;
+    --mint-dark: #7BC4B2;
+    --cream: #FFF8F0;
+    --cream-dark: #FFF0E0;
+    --dark-purple: #4A3F6B;
+    --dark-purple-light: #5D5280;
+    --text-dark: #3D3557;
+    --text-muted: #8A7FA8;
+    --white: #FFFFFF;
+    --shadow-soft: 0 4px 20px rgba(186, 169, 232, 0.15);
+    --shadow-hover: 0 8px 30px rgba(186, 169, 232, 0.25);
+    --shadow-card: 0 2px 15px rgba(0, 0, 0, 0.05);
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 30px;
+    --radius-pill: 50px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   Global Styles
+   ============================================ */
+.syaahi-body {
+    font-family: 'Nunito', 'Segoe UI', sans-serif;
+    background-color: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Carter One', 'Nunito', cursive;
+    font-weight: 400;
+    color: var(--dark-purple);
+}
+
+a {
+    color: var(--lavender-dark);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--sakura-dark);
+}
+
+::selection {
+    background: var(--lavender-light);
+    color: var(--dark-purple);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn-pill {
+    border-radius: var(--radius-pill) !important;
+    padding: 8px 24px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.btn-lavender {
+    background: var(--lavender);
+    color: var(--white);
+    border: 2px solid var(--lavender);
+}
+.btn-lavender:hover {
+    background: var(--lavender-dark);
+    border-color: var(--lavender-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-outline-lavender {
+    background: transparent;
+    color: var(--lavender-dark);
+    border: 2px solid var(--lavender);
+}
+.btn-outline-lavender:hover {
+    background: var(--lavender);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-sakura {
+    background: var(--sakura);
+    color: var(--white);
+    border: 2px solid var(--sakura);
+}
+.btn-sakura:hover {
+    background: var(--sakura-dark);
+    border-color: var(--sakura-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 183, 197, 0.4);
+}
+
+.btn-outline-sakura {
+    background: transparent;
+    color: var(--sakura-dark);
+    border: 2px solid var(--sakura);
+}
+.btn-outline-sakura:hover {
+    background: var(--sakura);
+    color: var(--white);
+}
+
+.btn-mint {
+    background: var(--mint);
+    color: var(--white);
+    border: 2px solid var(--mint);
+}
+.btn-mint:hover {
+    background: var(--mint-dark);
+    border-color: var(--mint-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: var(--lavender) !important;
+    border-color: var(--lavender) !important;
+}
+.btn-success:hover {
+    background: var(--lavender-dark) !important;
+    border-color: var(--lavender-dark) !important;
+}
+
+/* ============================================
+   Navbar
+   ============================================ */
+.syaahi-navbar {
+    background: var(--white);
+    box-shadow: 0 2px 20px rgba(186, 169, 232, 0.12);
+    padding: 12px 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--lavender-light);
+}
+
+.syaahi-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none !important;
+}
+
+.syaahi-logo .logo-icon {
+    font-size: 1.5rem;
+    color: var(--lavender-dark);
+}
+
+.syaahi-logo .logo-text {
+    font-family: 'WindSong', cursive;
+    font-weight: 500;
+    font-size: 2rem;
+    color: var(--dark-purple);
+    letter-spacing: 1px;
+}
+
+.syaahi-navbar .nav-link {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--text-dark);
+    padding: 10px 18px;
+    border-radius: var(--radius-sm);
+    position: relative;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-icon {
+    font-size: 0.9em;
+    width: 1em;
+    text-align: center;
+}
+
+.syaahi-navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--lavender);
+    border-radius: 3px;
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+.syaahi-navbar .nav-link:hover {
+    color: var(--lavender-dark);
+}
+
+.syaahi-navbar .nav-link:hover::after {
+    width: 60%;
+}
+
+.nav-welcome {
+    font-family: 'Carter One', cursive;
+    font-weight: 600;
+    color: var(--dark-purple);
+    font-size: 0.9rem;
+}
+
+.syaahi-toggler {
+    border: 2px solid var(--lavender-light) !important;
+    border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+.syaahi-hero {
+    background: linear-gradient(135deg, var(--lavender) 0%, var(--sakura) 50%, var(--sky-blue-light) 100%);
+    padding: 80px 0 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+.syaahi-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.syaahi-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+.hero-title {
+    font-family: 'Carter One', cursive;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 0 2px 10px rgba(74, 63, 107, 0.2);
+}
+
+.hero-subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2rem;
+    color: var(--white);
+    opacity: 0.95;
+}
+
+.hero-speech-bubble {
+    background: var(--white);
+    color: var(--dark-purple);
+    padding: 15px 25px;
+    border-radius: var(--radius-md);
+    display: inline-block;
+    position: relative;
+    font-family: 'Carter One', cursive;
+    font-weight: 600;
+    box-shadow: var(--shadow-soft);
+    margin-top: 15px;
+}
+
+.hero-speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid var(--white);
+}
+
+.hero-btn {
+    background: var(--white);
+    color: var(--lavender-dark);
+    border: none;
+    padding: 14px 40px;
+    border-radius: var(--radius-pill);
+    font-family: 'Carter One', cursive;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.hero-btn:hover {
+    background: var(--lavender-dark);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(74, 63, 107, 0.3);
+}
+
+/* Wave Divider */
+.wave-divider {
+    line-height: 0;
+    margin-top: -2px;
+}
+
+.wave-divider svg {
+    width: 100%;
+    height: 80px;
+    display: block;
+}
+
+.wave-divider-footer {
+    margin-top: 0;
+    margin-bottom: -2px;
+}
+
+/* ============================================
+   Product Cards (Manga Style)
+   ============================================ */
+.product-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    border: 2px solid transparent;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--lavender-light);
+}
+
+.product-card .card-img-top {
+    height: 280px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--lavender-light);
+}
+
+.product-card .card-body {
+    padding: 20px;
+}
+
+.product-card .card-title {
+    font-family: 'Carter One', cursive;
+    font-weight: 700;
+    color: var(--dark-purple);
+    font-size: 1.1rem;
+}
+
+.product-card .card-title a {
+    color: var(--dark-purple);
+    text-decoration: none;
+}
+
+.product-card .card-title a:hover {
+    color: var(--lavender-dark);
+}
+
+.product-card .product-price {
+    font-family: 'Carter One', cursive;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--sakura-dark);
+}
+
+.product-card-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+/* Product Actions */
+.product-actions {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.product-actions .btn {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+/* Kawaii Badges */
+.badge-kawaii {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    font-family: 'Carter One', cursive;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-new {
+    background: var(--sakura-light);
+    color: var(--sakura-dark);
+}
+
+.badge-hot {
+    background: #FFE0B2;
+    color: #E65100;
+}
+
+.badge-bestseller {
+    background: var(--lavender-light);
+    color: var(--lavender-dark);
+}
+
+/* ============================================
+   Star Ratings
+   ============================================ */
+.star-rating .fa-star {
+    color: #E0D8F0;
+    transition: var(--transition);
+}
+
+.star-rating .fa-star.checked {
+    color: #FFD700;
+    animation: starPop 0.3s ease forwards;
+}
+
+@keyframes starPop {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ============================================
+   Manga Panel Grid
+   ============================================ */
+.manga-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+/* ============================================
+   Speech Bubble (Notifications / Tooltips)
+   ============================================ */
+.speech-bubble {
+    background: var(--white);
+    border: 2px solid var(--lavender-light);
+    border-radius: var(--radius-md);
+    padding: 15px 20px;
+    position: relative;
+    box-shadow: var(--shadow-soft);
+    font-family: 'Nunito', sans-serif;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 25px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid var(--white);
+}
+
+.speech-bubble.success {
+    border-color: var(--mint);
+}
+
+.speech-bubble.error {
+    border-color: var(--sakura);
+}
+
+/* ============================================
+   Section Headers
+   ============================================ */
+.section-title {
+    font-family: 'Carter One', cursive;
+    font-weight: 700;
+    color: var(--dark-purple);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--lavender), var(--sakura));
+    border-radius: 4px;
+}
+
+/* When section-title is inside a text-center container or has text-center class */
+.text-center .section-title,
+.section-title.text-center {
+    display: block;
+}
+
+.text-center .section-title::after,
+.section-title.text-center::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ============================================
+   Forms (Login, Register, Contact)
+   ============================================ */
+.syaahi-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 40px 20px;
+}
+
+.syaahi-form-card {
+    background: var(--white);
+    padding: 40px;
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-hover);
+    border: 2px solid var(--lavender-light);
+    margin: 0 auto;
+}
+
+.syaahi-form-card .form-control {
+    border: 2px solid #E8E0F8;
+    border-radius: var(--radius-sm);
+    padding: 12px 18px;
+    font-family: 'Nunito', sans-serif;
+    transition: var(--transition);
+    background: var(--cream);
+}
+
+.syaahi-form-card .form-control:focus {
+    border-color: var(--lavender);
+    box-shadow: 0 0 0 4px rgba(184, 169, 232, 0.15);
+    background: var(--white);
+}
+
+.syaahi-form-card label {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--dark-purple);
+    margin-bottom: 6px;
+}
+
+.form-title {
+    font-family: 'Carter One', cursive;
+    font-weight: 700;
+    color: var(--dark-purple);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+/* ============================================
+   Cart & Tables
+   ============================================ */
+.syaahi-table {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.syaahi-table thead {
+    background: linear-gradient(135deg, var(--lavender), var(--sakura-light));
+    color: var(--white);
+}
+
+.syaahi-table thead th {
+    font-family: 'Carter One', cursive;
+    font-weight: 700;
+    padding: 15px;
+    border: none;
+}
+
+.syaahi-table th,
+.syaahi-table td {
+    vertical-align: middle;
+    padding: 1rem;
+    white-space: nowrap;
+}
+
+.syaahi-table tbody td {
+    padding: 15px;
+    vertical-align: middle;
+    border-color: var(--cream-dark);
+}
+
+.syaahi-table tbody tr:hover {
+    background: var(--cream);
+}
+
+.qty-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid var(--lavender-light);
+    background: var(--white);
+    color: var(--dark-purple);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.qty-btn:hover {
+    background: var(--lavender);
+    color: var(--white);
+    border-color: var(--lavender);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.syaahi-footer {
+    background: var(--dark-purple);
+    color: var(--cream);
+    padding-top: 20px;
+}
+
+.footer-brand {
+    font-family: 'WindSong', cursive;
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.footer-tagline {
+    color: var(--lavender-light);
+    font-weight: 600;
+}
+
+.footer-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-heading {
+    font-family: 'Carter One', cursive;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--sakura);
+    border-radius: 3px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--lavender-light);
+    text-decoration: none;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--sakura);
+    padding-left: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    transition: var(--transition);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.social-facebook { background: var(--lavender); }
+.social-twitter { background: var(--sky-blue); }
+.social-instagram { background: var(--sakura); }
+.social-pinterest { background: var(--mint); }
+
+.social-icon:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: var(--white);
+}
+
+.footer-copyright {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    padding: 20px 0;
+    border-top: 1px solid var(--dark-purple-light);
+    margin-bottom: 0;
+}
+
+/* ============================================
+   Floating Cart Button
+   ============================================ */
+.floating-cart-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--sakura);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 20px rgba(255, 183, 197, 0.5);
+    z-index: 999;
+    transition: var(--transition);
+    text-decoration: none;
+    animation: cartBounce 2s ease infinite;
+}
+
+.floating-cart-btn:hover {
+    background: var(--sakura-dark);
+    color: var(--white);
+    transform: scale(1.15);
+    animation: none;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--mint);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Carter One', cursive;
+}
+
+@keyframes cartBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* ============================================
+   Fade-in Scroll Animation
+   ============================================ */
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   Cart Header Links (legacy support)
+   ============================================ */
+.cart-header-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+
+.cart-header-links a {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: var(--radius-pill);
+    background: var(--lavender-light);
+    color: var(--dark-purple);
+    text-decoration: none;
+    font-family: 'Carter One', cursive;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.cart-header-links a:hover {
+    background: var(--lavender);
+    color: var(--white);
+}
+
+/* ============================================
+   Page-specific: About
+   ============================================ */
+.about-section {
+    padding: 60px 0;
+}
+
+/* ============================================
+   Page-specific: Blog
+   ============================================ */
+.blog-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    border: 2px solid transparent;
+    height: 100%;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--lavender-light);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ============================================
+   Page-specific: Contact
+   ============================================ */
+.contact-info-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    box-shadow: var(--shadow-card);
+    border: 2px solid var(--lavender-light);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.contact-info-card i {
+    font-size: 2.5rem;
+    color: var(--lavender);
+    margin-bottom: 15px;
+}
+
+/* ============================================
+   Alerts / Notifications
+   ============================================ */
+.alert-syaahi {
+    border-radius: var(--radius-md);
+    border: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+.alert-success-syaahi {
+    background: var(--mint);
+    color: var(--white);
+}
+
+.alert-error-syaahi {
+    background: var(--sakura);
+    color: var(--white);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .syaahi-navbar .navbar-nav {
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .syaahi-navbar .nav-link {
+        justify-content: center;
+    }
+
+    .nav-auth-buttons {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .nav-auth-buttons .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .navbar-expand-lg > .container, 
+    .navbar-expand-lg > .container-fluid {
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .syaahi-hero {
+        padding: 50px 0 80px;
+    }
+
+    .manga-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 15px;
+    }
+
+    .product-card .card-img-top,
+    .product-card-img {
+        height: 220px;
+    }
+
+    .syaahi-form-card {
+        padding: 25px;
+        /* margin: 10px; */
+    }
+
+    .floating-cart-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .wave-divider svg {
+        height: 50px;
+    }
+
+    .login-card .grid-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .manga-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .syaahi-hero::before {
+        display: none;
+    }
+    
+    .syaahi-form-card {
+        padding: 24px 20px !important;
+    }
+    
+    .floating-cart-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    /* Table to Cards for Mobile */
+    .table-responsive {
+        border: none !important;
+        overflow: visible !important;
+    }
+    .syaahi-table, 
+    .syaahi-table tbody, 
+    .syaahi-table tr, 
+    .syaahi-table td {
+        display: block;
+        width: 100%;
+    }
+    .syaahi-table thead {
+        display: none;
+    }
+    .syaahi-table tr {
+        margin-bottom: 1.5rem;
+        border: 2px solid var(--lavender-light) !important;
+        border-radius: var(--radius-md);
+        background: var(--white);
+        box-shadow: var(--shadow-sm);
+        padding: 10px;
+    }
+    .syaahi-table td {
+        text-align: right;
+        padding-left: 45% !important;
+        position: relative;
+        border-bottom: 1px solid var(--cream-dark) !important;
+        white-space: normal !important;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .syaahi-table td:last-child {
+        border-bottom: 0 !important;
+    }
+    .syaahi-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 40%;
+        text-align: left;
+        font-family: 'Carter One', cursive;
+        color: var(--dark-purple);
+        font-size: 0.95rem;
+    }
+    /* Special handling for full width cells like Product */
+    .syaahi-table td.mobile-full-width {
+        padding-left: 15px !important;
+        text-align: left;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .syaahi-table td.mobile-full-width::before {
+        position: relative;
+        left: 0;
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* ============================================
+   Legacy class overrides (backward compat)
+   ============================================ */
+.text-brand {
+    color: var(--lavender-dark) !important;
+}
+
+.text-success {
+    color: var(--lavender-dark) !important;
+}
+
+.bg-brand {
+    background-color: var(--lavender) !important;
+}
+
+.btn-brand {
+    background-color: var(--lavender);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-pill);
+}
+
+.bordered {
+    border: 2px solid var(--lavender-light);
+    border-radius: var(--radius-md);
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+/* Override Bootstrap's default green for .btn-success context */
+.product-wap .btn-success,
+.btn-success.text-white {
+    background: var(--lavender) !important;
+    border-color: var(--lavender) !important;
+    border-radius: 50% !important;
+}
+
+.product-wap .btn-success:hover,
+.btn-success.text-white:hover {
+    background: var(--sakura) !important;
+    border-color: var(--sakura) !important;
+}
+
+/* Fix page links for the old page-link class */
+.page-link {
+    color: var(--lavender-dark);
+    border-color: var(--lavender-light);
+}
+
+.page-link.active,
+.page-item.active .page-link {
+    background: var(--lavender);
+    border-color: var(--lavender);
+}
+
+/* ============================================
+   Spacing & Polish
+   ============================================ */
+
+/* Broken image fallback — show a nice gradient instead of ugly alt text */
+.product-card .card-img-top[alt]::after,
+.product-card-img[alt]::after {
+    content: attr(alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--lavender-light), var(--sakura-light));
+    color: var(--dark-purple);
+    font-family: 'Carter One', cursive;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Product card image container — ensure consistent sizing */
+.product-card .position-relative {
+    overflow: hidden;
+}
+
+/* Category filter pills — ensure consistent gap */
+.d-flex.flex-wrap.gap-2 .btn-pill {
+    margin-bottom: 6px;
+    margin-right: 6px;
+}
+
+/* ============================================
+   Missing Utility Classes (Polyfill for BS4)
+   ============================================ */
+.gap-1 { gap: 0.25rem !important; }
+.gap-2 { gap: 0.5rem !important; }
+.gap-3 { gap: 1rem !important; }
+.gap-4 { gap: 1.5rem !important; }
+.gap-5 { gap: 3rem !important; }
+
+/* Contact Form Spacing */
+.product-card .card-body {
+    padding: 18px 20px;
+}
+
+/* Card title link — no underline */
+.product-card .card-title a {
+    text-decoration: none;
+}
+
+/* Product card action buttons — breathing room */
+.product-card .d-flex.gap-2 {
+    gap: 10px !important;
+}
+
+
+
+
+/* Star rating spacing */
+.star-rating {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+.star-rating .fa-star {
+    font-size: 0.95rem;
+}
+
+/* Badge kawaii — ensure always on top of image */
+.badge-kawaii {
+    z-index: 2;
+}
+
+/* Navbar auth button consistency */
+.nav-auth-buttons {
+    gap: 14px !important;
+}
+
+.nav-auth-buttons .btn {
+    font-size: 0.9rem;
+    padding: 8px 24px;
+    white-space: nowrap;
+}
+
+/* Product price consistent sizing */
+.product-price {
+    font-size: 1.25rem;
+}
+
+/* Contact info card icon spacing */
+.contact-info-card i {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.contact-info-card h5 {
+    margin-bottom: 8px;
+    font-family: 'Carter One', cursive;
+    font-weight: 700;
+}
+
+/* Form label spacing */
+.syaahi-form-card .form-label {
+    margin-bottom: 8px;
+}
+
+/* Speech bubble spacing */
+.speech-bubble {
+    margin-bottom: 12px;
+}
+
+/* Footer link spacing */
+.footer-links {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    padding: 6px 0;
+}
+
+.footer-links li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.footer-links li a:hover {
+    color: var(--sakura);
+    padding-left: 5px;
+}
+
+.footer-links li a i {
+    font-size: 0.7em;
+    flex-shrink: 0;
+}
+
+/* Manga grid minimum card width */
+.manga-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+/* Hero section spacing */
+.syaahi-hero .hero-speech-bubble {
+    margin-top: 20px;
+}
+
+/* Carousel control — clean arrows, no ugly circle */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    backdrop-filter: blur(4px);
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    filter: invert(25%) sepia(40%) saturate(800%) hue-rotate(225deg);
+}
+
+/* ============================================
+   Profile Page
+   ============================================ */
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--lavender), var(--sakura));
+    color: white;
+    font-size: 3rem;
+    font-family: 'Carter One', cursive;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(184, 169, 232, 0.35);
+}
+
+.profile-stat-card {
+    background: var(--white);
+    border: 2px solid var(--lavender-light);
+    border-radius: var(--radius-lg);
+    padding: 24px 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+}
+
+.profile-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--lavender);
+}
+
+.profile-stat-icon {
+    font-size: 1.8rem;
+}
+
+.profile-stat-number {
+    font-family: 'Carter One', cursive;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--dark-purple);
+}
+
+.profile-stat-label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* ============================================
+   Login / Register standalone form width
+   ============================================ */
+.syaahi-form-wrapper .syaahi-form-card {
+    max-width: 480px;
+}
