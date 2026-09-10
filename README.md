@@ -1,4 +1,4 @@
-﻿<h1 align="center">🌸 Syaahi E-Commerce 📚</h1>
+<h1 align="center">🌸 Syaahi E-Commerce 📚</h1>
 
 <p align="center">
   A cozy, pastel-themed, fully responsive e-commerce platform for books, manga, and aesthetic stationery.
@@ -90,34 +90,34 @@ If you think it turned out cool, feel free to drop a **star ⭐** or **fork it �
 This project is completely Dockerized, making it incredibly easy to spin up the entire application and database locally in seconds!
 
 ### **1. Clone the Repository**
-\\\sh
+```sh
 git clone https://github.com/Dibyaranjan27/syaahi-php-store.git
 cd syaahi-php-store
-\\\
+```
 
 ### **2. Set up Environment**
-\\\sh
+```sh
 cp .env.example .env
-\\\
-*(You can edit the \.env\ file if you wish to change the default database credentials).*
+```
+*(You can edit the `.env` file if you wish to change the default database credentials).*
 
 ### **3. Start the Application**
-\\\sh
+```sh
 docker-compose up -d --build
-\\\
+```
 
 ### **4. Access the Site**
 - **Syaahi Website:** [http://localhost:8080](http://localhost:8080)
 - **phpMyAdmin:** [http://localhost:8081](http://localhost:8081)
 - **Admin Panel:** [http://localhost:8080/admin/](http://localhost:8080/admin/)
 
-*(See \CREDENTIALS.md\ for default demo accounts!)*
+*(See `CREDENTIALS.md` for default demo accounts!)*
 
 ---
 
 ## 📂 File Structure
 
-\\\	ext
+```text
 /syaahi-php-store
 │
 ├── docker-compose.yml      # Docker services configuration
@@ -132,7 +132,7 @@ docker-compose up -d --build
 │   └── assets/             # CSS, JS, images, webfonts
 ├── CREDENTIALS.md          # Demo login details
 └── README.md               # This file
-\\\
+```
 
 ---
 
