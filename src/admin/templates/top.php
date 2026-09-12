@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="../assets/css/syaahi.css?v=<?php echo time(); ?>">
 
 
+    <link href="./css/dashboard.css" rel="stylesheet">
     <style>
       body {
         background-color: #fcf9ff; /* soft pastel background */
@@ -28,7 +29,9 @@
       }
       .sidebar {
         background-color: #ffffff !important;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+        box-shadow: 2px 0 10px rgba(0,0,0,0.05) !important; /* Overrides the ugly inset line */
+        padding-top: 70px !important; /* Pushes the logo down to not clash with the top navbar */
+        border-right: none !important;
       }
       .sidebar .nav-link {
         border-radius: 50px;
@@ -100,7 +103,6 @@
         }
       }
     </style>
-    <link href="./css/dashboard.css" rel="stylesheet">
   </head>
 
  <body>

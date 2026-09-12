@@ -1,7 +1,9 @@
 <nav class="col-md-2 d-none d-md-block sidebar py-3">
       <div class="sidebar-sticky">
         <div class="text-center mb-4">
-            <span style="font-family: 'WindSong', cursive; font-size: 3rem; color: var(--dark-purple, #3b0764);">Syaahi</span>
+            <a href="index.php" style="text-decoration: none;">
+                <span style="font-family: 'WindSong', cursive; font-size: 3.5rem; color: var(--dark-purple, #3b0764);">Syaahi</span>
+            </a>
         </div>
         <ul class="nav flex-column">
 
@@ -10,7 +12,42 @@
             $uriAr = explode("/", $uri);
             $page = end($uriAr);
           ?>
-          		  
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($page == 'index.php') ? 'active' : ''; ?>" href="index.php">
+              <i class="fas fa-home"></i> Dashboard
+            </a>
+          </li>			  
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($page == 'profile.php') ? 'active' : ''; ?>" href="profile.php">
+              <i class="fas fa-user-circle"></i> Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($page == 'admin.php') ? 'active' : ''; ?>" href="admin.php">
+              <i class="fas fa-user-shield"></i> Admins
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($page == 'users.php') ? 'active' : ''; ?>" href="users.php">
+              <i class="fas fa-users"></i> Users
+            </a>
+          </li>	
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($page == 'categories.php') ? 'active' : ''; ?>" href="categories.php">
+              <i class="fas fa-layer-group"></i> Categories
+            </a>
+          </li>		  
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($page == 'addproduct.php') ? 'active' : ''; ?>" href="addproduct.php">
+              <i class="fas fa-box-open"></i> Products
+            </a>
+          </li>	
+          <li class="nav-item">
+            <a class="nav-link <?php echo ($page == 'comment.php') ? 'active' : ''; ?>" href="comment.php">
+              <i class="fas fa-comments"></i> Comments
+            </a>
+          </li>		  
+
           <li class="nav-item">
             <a class="nav-link <?php echo ($page == 'feedback.php') ? 'active' : ''; ?>" href="feedback.php">
               <i class="fas fa-envelope-open-text"></i> Feedbacks
