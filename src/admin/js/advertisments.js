@@ -47,7 +47,16 @@ $(document).ready(function(){
 
 		var AdvertismentID = $(this).attr('AdvertismentID');
 
-		if (confirm("Are you sure to delete this advertisment")) {
+		Swal.fire({
+            title: 'Are you sure?',
+            text: "Are you sure to delete this advertisment",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f472b6',
+            cancelButtonColor: '#9ca3af',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
 			$.ajax({
 				url : '../admin/classes/Advertisments.php',
 				method : 'POST',
@@ -55,16 +64,17 @@ $(document).ready(function(){
 				success : function(response){
 					var resp = $.parseJSON(response);
 					if (resp.status == 202) {
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 						getAdvertisments();
 					}else if(resp.status == 303){
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 					}
 				}
 			})
-		}else{
-			alert('Cancelled');
+		} else {
+			Swal.fire({text: 'Cancelled', confirmButtonColor: '#c084fc'});
 		}
+        });
 
 		
 
@@ -74,24 +84,34 @@ $(document).ready(function(){
 
 		var AdvertismentID = $(this).attr('AdvertismentID');
 
-		if (confirm("Are you sure to hide this advertisment")) {
+		Swal.fire({
+            title: 'Are you sure?',
+            text: "Are you sure to delete this advertisment",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f472b6',
+            cancelButtonColor: '#9ca3af',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
 			$.ajax({
 				url : '../admin/classes/Advertisments.php',
 				method : 'POST',
-				data : {HIDE_ADVERTISMENT:1, AdvertismentID:AdvertismentID},
+				data : {DELETE_ADVERTISMENT:1, AdvertismentID:AdvertismentID},
 				success : function(response){
 					var resp = $.parseJSON(response);
 					if (resp.status == 202) {
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 						getAdvertisments();
 					}else if(resp.status == 303){
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 					}
 				}
 			})
-		}else{
-			alert('Cancelled');
-		}	
+		} else {
+			Swal.fire({text: 'Cancelled', confirmButtonColor: '#c084fc'});
+		}
+        });	
 
 	});
 
@@ -99,24 +119,34 @@ $(document).ready(function(){
 
 		var AdvertismentID = $(this).attr('AdvertismentID');
 
-		if (confirm("Are you sure to unhide this advertisment")) {
+		Swal.fire({
+            title: 'Are you sure?',
+            text: "Are you sure to delete this advertisment",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f472b6',
+            cancelButtonColor: '#9ca3af',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
 			$.ajax({
 				url : '../admin/classes/Advertisments.php',
 				method : 'POST',
-				data : {UNHIDE_ADVERTISMENT:1, AdvertismentID:AdvertismentID},
+				data : {DELETE_ADVERTISMENT:1, AdvertismentID:AdvertismentID},
 				success : function(response){
 					var resp = $.parseJSON(response);
 					if (resp.status == 202) {
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 						getAdvertisments();
 					}else if(resp.status == 303){
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 					}
 				}
 			})
-		}else{
-			alert('Cancelled');
-		}	
+		} else {
+			Swal.fire({text: 'Cancelled', confirmButtonColor: '#c084fc'});
+		}
+        });	
 
 	});		
 

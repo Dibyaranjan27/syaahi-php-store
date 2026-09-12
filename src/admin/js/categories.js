@@ -49,9 +49,9 @@ $(document).ready(function(){
 				var resp = $.parseJSON(response);
 				if (resp.status == 202) {
 					getCategories();
-					alert(resp.message);
+					Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 				}else if(resp.status == 303){
-					alert(resp.message);
+					Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 				}
 				$("#add_category_modal").modal('hide');
 			}
@@ -65,7 +65,16 @@ $(document).ready(function(){
 
 		var CategoryID = $(this).attr('CategoryID');
 
-		if (confirm("Are you sure to delete this category")) {
+		Swal.fire({
+            title: 'Are you sure?',
+            text: "Are you sure to delete this category",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f472b6',
+            cancelButtonColor: '#9ca3af',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
 			$.ajax({
 				url : '../admin/classes/Categories.php',
 				method : 'POST',
@@ -73,16 +82,17 @@ $(document).ready(function(){
 				success : function(response){
 					var resp = $.parseJSON(response);
 					if (resp.status == 202) {
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 						getCategories();
 					}else if(resp.status == 303){
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 					}
 				}
 			})
-		}else{
-			alert('Cancelled');
+		} else {
+			Swal.fire({text: 'Cancelled', confirmButtonColor: '#c084fc'});
 		}
+        });
 
 	});
 	
@@ -107,9 +117,9 @@ $(document).ready(function(){
 				var resp = $.parseJSON(response);
 				if (resp.status == 202) {
 					getCategories();
-					alert(resp.message);
+					Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 				}else if(resp.status == 303){
-					alert(resp.message);
+					Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 				}
 				$("#edit_category_modal").modal('hide');
 			}

@@ -29,9 +29,14 @@
       }
       .sidebar {
         background-color: #ffffff !important;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.05) !important; /* Overrides the ugly inset line */
-        padding-top: 70px !important; /* Pushes the logo down to not clash with the top navbar */
+        box-shadow: 2px 0 10px rgba(0,0,0,0.05) !important;
+        padding-top: 20px !important;
         border-right: none !important;
+      }
+      @media (min-width: 768px) {
+        [role="main"] {
+            padding-top: 10px !important; 
+        }
       }
       .sidebar .nav-link {
         border-radius: 50px;

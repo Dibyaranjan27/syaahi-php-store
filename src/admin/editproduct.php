@@ -86,120 +86,92 @@ if ($productId && $_SERVER['REQUEST_METHOD'] != 'POST') {
 <html>
 
 <head>
-    <title>Edit Product</title>
-    <!-- Additional head elements here -->
+    <div class="row">
+        <div class="col-md-8 mx-auto mt-4">
+            <div class="card syaahi-admin-card p-4">
+                <h3 class="mb-4" style="font-family: 'Carter One', cursive; color: var(--dark-purple, #6b21a8);">Update Product ✨</h3>
+                
+                <?php if ($message) : ?>
+                    <div class="alert alert-info rounded-pill"><?php echo $message; ?></div>
+                <?php endif; ?>
 
-    <!-- CSS -->
-    <style>
-        *,
-        *::after,
-        *::before {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
+                <?php if ($product) : ?>
+                    <form action="editproduct.php?ProductId=<?php echo $productId; ?>" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="ProductId" value="<?php echo $product['ProductId']; ?>">
+                        
+                        <div class="mb-3">
+                            <label class="form-label font-weight-bold">Product Title</label>
+                            <input class="form-control" type="text" name="Title" value="<?php echo htmlspecialchars($product['Title']); ?>" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label font-weight-bold">Description</label>
+                            <textarea class="form-control" name="Description" rows="3"><?php echo htmlspecialchars($product['Description']); ?></textarea>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label font-weight-bold">Price ($)</label>
+                                <input class="form-control" type="number" step="0.01" name="Price" value="<?php echo htmlspecialchars($product['Price']); ?>">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label font-weight-bold">Category ID</label>
+                                <input class="form-control" type="number" name="CategoryID" value="<?php echo htmlspecialchars($product['CategoryID'] ?? ''); ?>">
+                            </div>
+                        </div>
 
-        form {
-            --bg-color: #fff;
-            --main-color: #323232;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            padding: 2rem;
-            border-radius: 5px;
-            border: 1px solid var(--main-color);
-            box-shadow: 2px 2px var(--main-color);
-            background: #f0f0f0;
-            font-weight: bold;
-            margin-inline: 10rem;
-        }
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label font-weight-bold">Rating</label>
+                                <input class="form-control" type="number" step="0.1" name="Rating" value="<?php echo htmlspecialchars($product['Rating'] ?? ''); ?>">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label font-weight-bold">Brand</label>
+                                <input class="form-control" type="text" name="Brand" value="<?php echo htmlspecialchars($product['Brand'] ?? ''); ?>">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label font-weight-bold">Size</label>
+                                <input class="form-control" type="text" name="Size" value="<?php echo htmlspecialchars($product['Size'] ?? ''); ?>">
+                            </div>
+                        </div>
 
-        .styling,
-        textarea {
-            min-width: 20rem;
-            height: 3rem;
-            border-radius: 4px;
-            border: 1px solid var(--main-color);
-            background-color: var(--bg-color);
-            box-shadow: 2px 2px var(--main-color);
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--font-color);
-            padding: 5px 10px;
-            outline: none;
-        }
+                        <div class="mb-3">
+                            <label class="form-label font-weight-bold">Specifications</label>
+                            <textarea class="form-control" name="Specification" rows="2"><?php echo htmlspecialchars($product['Specification'] ?? ''); ?></textarea>
+                        </div>
 
-        textarea {
-            resize: vertical;
-            max-height: 8rem;
-        }
+                        <div class="mb-4">
+                            <label class="form-label font-weight-bold">Product Image</label>
+                            <?php if (!empty($product['ImgPath'])) : ?>
+                                <div class="mb-2">
+                                    <img src="<?php echo htmlspecialchars($product['ImgPath']); ?>" alt="Current Image" class="rounded shadow-sm" style="max-height: 100px;">
+                                </div>
+                                <input type="hidden" name="existingImgPath" value="<?php echo htmlspecialchars($product['ImgPath']); ?>">
+                            <?php endif; ?>
+                            <input class="form-control-file" type="file" name="ImgPath" id="ImgPath">
+                        </div>
 
-        label {
-            display: flex;
-            line-height: 2rem;
-        }
+                        <div class="custom-control custom-switch mb-4">
+                            <input type="checkbox" class="custom-control-input" id="isAvailable" name="IsAvailable" <?php echo $product['IsAvailable'] === "AVAILABLE" ? 'checked' : ''; ?>>
+                            <label class="custom-control-label font-weight-bold text-success" for="isAvailable">Product is Available</label>
+                        </div>
 
-        label input {
-            margin-inline: 1rem;
-        }
-
-        button {
-            color: #fff;
-            border: 1px solid #000;
-            border-radius: 4px;
-            padding: 0.8em 2em;
-            background: #000;
-            transition: 0.2s;
-            margin-inline: 4rem;
-        }
-
-        button:hover {
-            color: #000;
-            transform: translate(-0.25rem, -0.25rem);
-            background: #ff90e8;
-            box-shadow: 0.25rem 0.25rem #000;
-        }
-    </style>
-    <!-- CSS END -->
-</head>
-
-<body>
-    <?php include_once("./templates/top.php"); ?>
-    <?php include_once("./templates/navbar.php"); ?>
-    <?php include "./templates/sidebar.php"; ?>
-
-    <?php if ($message) : ?>
-        <div class="alert alert-info"><?php echo $message; ?></div>
-    <?php endif; ?>
-
-    <?php if ($product) : ?>
-
-        <form action="editproduct.php?ProductId=<?php echo $productId; ?>" method="post" enctype="multipart/form-data">
-            <h1>Update Product</h1>
-            <input class="styling" type="hidden" name="ProductId" value="<?php echo $product['ProductId']; ?>">
-            <input class="styling" type="text" name="Title" value="<?php echo $product['Title']; ?>" required>
-            <textarea name="Description"><?php echo $product['Description']; ?></textarea>
-            <label>
-                Available
-                <input type="checkbox" name="IsAvailable" <?php echo $product['IsAvailable'] === "AVAILABLE" ? 'checked' : ''; ?>>
-            </label>
-            <input class="styling" type="number" step="0.01" name="Price" value="<?php echo $product['Price']; ?>">
-            <?php if (!empty($product['ImgPath'])) : ?>
-                <img src="<?php echo $product['ImgPath']; ?>" alt="Current Image" style="max-width: 100px; max-height: 100px;">
-                <input type="hidden" name="existingImgPath" value="<?php echo $product['ImgPath']; ?>">
-            <?php endif; ?>
-            <input type="file" name="ImgPath" id="ImgPath">
-            <input class="styling" type="number" step="0.1" name="Rating" value="<?php echo $product['Rating']; ?>">
-            <input class="styling" type="text" name="Brand" value="<?php echo $product['Brand']; ?>">
-            <input class="styling" type="text" name="Size" value="<?php echo $product['Size']; ?>">
-            <textarea name="Specification"><?php echo $product['Specification']; ?></textarea>
-            <input class="styling" type="text" name="Categories" value="<?php echo $product['Categories']; ?>">
-            <button type="submit">Update Product</button>
-        </form>
-    <?php else : ?>
-        <p>Product not found.</p>
-    <?php endif; ?>
+                        <div class="text-right">
+                            <a href="addproduct.php" class="btn btn-light rounded-pill px-4 mr-2">Cancel</a>
+                            <button type="submit" class="btn btn-lavender btn-pill px-5 shadow-sm">Update Product</button>
+                        </div>
+                    </form>
+                <?php else : ?>
+                    <div class="text-center py-5">
+                        <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
+                        <h4 class="text-muted">Product not found.</h4>
+                        <a href="addproduct.php" class="btn btn-outline-lavender btn-pill mt-3">Back to Products</a>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    </main>
 
     <?php include_once("./templates/footer.php"); ?>
 </body>

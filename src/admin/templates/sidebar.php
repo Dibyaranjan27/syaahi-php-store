@@ -62,5 +62,8 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-4 border-bottom">
         <h1 class="h2" style="font-family: 'Carter One', cursive; color: var(--dark-purple, #6b21a8);">Hello, <?php echo $_SESSION["admin_name"]; ?> 👋</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
+          <a class="btn btn-outline-sakura btn-pill px-4 shadow-sm" href="../admin/admin-logout.php">
+            <i class="fas fa-sign-out-alt"></i> Sign out
+          </a>
         </div>
       </div>

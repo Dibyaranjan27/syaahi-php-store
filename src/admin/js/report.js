@@ -46,7 +46,16 @@ $(document).ready(function(){
 		var UserID = $(this).attr('UserID');
 		var AdsID = $(this).attr('AdsID');
 
-		if (confirm("Are you sure to delete this report")) {
+		Swal.fire({
+            title: 'Are you sure?',
+            text: "Are you sure to delete this report",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f472b6',
+            cancelButtonColor: '#9ca3af',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
 			$.ajax({
 				url : '../admin/classes/report.php',
 				method : 'POST',
@@ -54,16 +63,17 @@ $(document).ready(function(){
 				success : function(response){
 					var resp = $.parseJSON(response);
 					if (resp.status == 202) {
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 						getreport();
 					}else if(resp.status == 303){
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 					}
 				}
 			})
-		}else{
-			alert('Cancelled');
+		} else {
+			Swal.fire({text: 'Cancelled', confirmButtonColor: '#c084fc'});
 		}
+        });
 	});	
 
 });
