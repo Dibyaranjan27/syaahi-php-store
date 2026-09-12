@@ -49,14 +49,14 @@ include('../includes/head.php');
                     <td data-label="Price">₹<?php echo number_format($row['UnitPrice'], 2); ?></td>
                     <td data-label="Quantity">
                         <form action="../api/order-update.php" method="POST" class="d-flex align-items-center gap-2">
-                            <input type="hidden" name="ShoppingCartId" value="<?php echo $row['ShoppingCartId']; ?>">
+                            <input type="hidden" name="ProductId" value="<?php echo $row['ProductId']; ?>">
                             <input type="number" name="quantity" value="<?php echo $row['Quantity']; ?>" min="1" class="form-control" style="width: 80px;">
                             <button type="submit" class="btn btn-sm btn-lavender btn-pill px-3">Update</button>
                         </form>
                     </td>
                     <td data-label="Total">₹<?php echo number_format($subtotal, 2); ?></td>
                     <td data-label="Action">
-                        <a href="../api/order-delete.php?id=<?php echo $row['ShoppingCartId']; ?>" class="btn btn-sm btn-outline-sakura btn-pill px-3">
+                        <a href="../api/order-delete.php?productId=<?php echo $row['ProductId']; ?>" class="btn btn-sm btn-outline-sakura btn-pill px-3">
                             <i class="fas fa-trash-alt nav-icon"></i> Remove
                         </a>
                     </td>
