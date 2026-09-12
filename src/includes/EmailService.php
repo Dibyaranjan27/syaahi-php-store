@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -34,9 +34,9 @@ class EmailService {
             $this->mailer->Subject = "Order Confirmation #{}";
             $this->mailer->Body    = "
                 <div style='font-family: Arial, sans-serif; padding: 20px; background-color: #fdf4ff; border-radius: 10px;'>
-                    <h2 style='color: #6b21a8;'>Thank you for your order! 🌸</h2>
+                    <h2 style='color: #6b21a8;'>Thank you for your order! ??</h2>
                     <p>Your order <strong>#{}</strong> has been confirmed.</p>
-                    <p><strong>Total Amount:</strong> ₹{}</p>
+                    <p><strong>Total Amount:</strong> ?{}</p>
                     <p>We are preparing your items for shipment. Thank you for shopping with Syaahi!</p>
                 </div>
             ";
@@ -59,7 +59,7 @@ class EmailService {
 
             $this->mailer->Body = "
                 <div style='font-family: Arial, sans-serif; padding: 20px; background-color: #fdf4ff; border-radius: 10px;'>
-                    <h2 style='color: #6b21a8;'>Password Reset Request 🔐</h2>
+                    <h2 style='color: #6b21a8;'>Password Reset Request ??</h2>
                     <p>We received a request to reset your Syaahi password.</p>
                     <p>Click the link below to set a new password:</p>
                     <a href='{}' style='display: inline-block; padding: 10px 20px; background-color: #d946ef; color: white; text-decoration: none; border-radius: 50px;'>Reset Password</a>

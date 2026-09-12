@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 require_once('../includes/db.php');
 
@@ -49,7 +49,7 @@ include('../includes/head.php');
 <div class="container py-5 min-vh-100 d-flex align-items-center justify-content-center">
     <div class="syaahi-form-card shadow bg-white p-5 rounded" style="width: 100%; max-width: 500px;">
         <div class="text-center mb-4 fade-in-on-scroll">
-            <h2 class="form-title">Change Password 🔐</h2>
+            <h2 class="form-title">Change Password ??</h2>
             <p class="text-muted">Keep your account secure.</p>
         </div>
         
