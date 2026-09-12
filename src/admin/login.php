@@ -32,4 +32,4 @@
 
 <?php include "./templates/footer.php"; ?>
 
-<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="./js/main.js?v=<?php echo time(); ?>"></script>
