@@ -13,7 +13,7 @@ class comment
 	}
 
 	public function getcomment(){
-		$stmt = $this->con->prepare("SELECT comments.UserID,comments.AdsID,comments.Details,comments.commentID,users.UserName AS un,advertisments.Title AS an FROM advertisments,comments,users WHERE 1 AND comments.UserID=users.UserID AND comments.AdsID=advertisments.AdsID");
+		$stmt = $this->con->prepare("SELECT comments.UserID,comments.ProductId,comments.Details,comments.commentID,users.UserName AS un,products.Title AS an FROM products,comments,users WHERE 1 AND comments.UserID=users.UserID AND comments.ProductId=products.ProductId");
 		$stmt->execute();
 		$query = $stmt->get_result();
 		$ar = [];

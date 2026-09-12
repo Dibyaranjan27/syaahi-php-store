@@ -29,8 +29,7 @@ $(document).ready(function(){
 					$("#feedback_list").html(feedbackHTML);
 
 				}else if(resp.status == 303){
-					$("#feedback_list").html(resp.message);
-
+					$("#feedback_list").html('<tr><td colspan="4" class="text-center text-muted py-4"><i class="fas fa-inbox fa-2x mb-3 d-block text-black-50"></i>' + resp.message + '</td></tr>');
 				}
 
 			}

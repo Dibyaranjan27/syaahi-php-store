@@ -106,19 +106,7 @@ include "./templates/top.php";
 			</a>
 		</div>
 
-		<div class="col-xl-4 col-sm-6 mb-4">
-			<a href="report.php" class="text-decoration-none">
-				<div class="card syaahi-admin-card text-white h-100" style="background-color: var(--lavender, #c084fc);">
-					<div class="card-body d-flex align-items-center justify-content-between p-4">
-						<div>
-							<h4 class="mb-0">Reports</h4>
-							<small class="text-white-50">View analytics</small>
-						</div>
-						<i class="fas fa-chart-bar"></i>
-					</div>
-				</div>
-			</a>
-		</div>
+		
 
 		<div class="col-xl-4 col-sm-6 mb-4">
 			<a href="feedback.php" class="text-decoration-none">

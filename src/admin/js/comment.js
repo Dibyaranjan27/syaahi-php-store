@@ -22,9 +22,9 @@ $(document).ready(function(){
 									          '<td>'+value.Details+'</td>'+
 									          '<td>'+value.UserID+'</td>'+
 									          '<td>'+value.un+'</td>'+
-									          '<td>'+value.AdsID+'</td>'+
+									          '<td>'+value.ProductId+'</td>'+
 											  '<td>'+value.an+'</td>'+
-											  '<td><a commentID="'+value.commentID+'" class="btn btn-sm btn-danger delete-comment"><i class="fas fa-trash-alt"></i></a></td>'+
+											  '<td><a commentID="'+value.commentID+'" class="btn btn-sm btn-sakura delete-comment"><i class="fas fa-trash-alt"></i></a></td>'+
 									       '</tr>'
 
 					});
@@ -32,8 +32,7 @@ $(document).ready(function(){
 					$("#comment_list").html(commentHTML);
 
 				}else if(resp.status == 303){
-					$("#comment_list").html(resp.message);
-
+					$("#comment_list").html('<tr><td colspan="7" class="text-center text-muted py-4"><i class="fas fa-inbox fa-2x mb-3 d-block text-black-50"></i>' + resp.message + '</td></tr>');
 				}
 
 			}

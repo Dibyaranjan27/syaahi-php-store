@@ -20,8 +20,8 @@
               <th>Details</th>
               <th>User ID</th>
               <th>User Name</th>
-              <th>Ad ID</th>
-			  <th>Ad Name</th>
+              <th>Product ID</th>
+			  <th>Product Name</th>
 			  <th>Action</th>
             </tr>
           </thead>
