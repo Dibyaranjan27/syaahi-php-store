@@ -77,13 +77,9 @@ $products = $stmt->get_result();
     <?php include "./templates/sidebar.php"; ?>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-10">
-                <h2>Products</h2>
-            </div>
-            <div class="col-2">
-                <a href="#" data-toggle="modal" data-target="#add_product_modal" class="btn btn-lavender btn-sm">Add Product</a>
-            </div>
+        <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
+            <h2>Products</h2>
+            <a href="#" data-toggle="modal" data-target="#add_product_modal" class="btn btn-lavender btn-sm rounded-pill px-4 shadow-sm">Add Product</a>
         </div>
 
         <div class="table-responsive">

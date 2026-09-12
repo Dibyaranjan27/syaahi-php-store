@@ -6,13 +6,9 @@
     
     <?php include "./templates/sidebar.php"; ?>
 
-      <div class="row">
-      	<div class="col-10">
-      		<h2>Categories</h2>
-      	</div>
-		<div class="col-2">
-      		<a href="#" data-toggle="modal" data-target="#add_category_modal" class="btn btn-mint btn-sm">Add Category</a>
-      	</div>
+      <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
+      	<h2>Categories</h2>
+      	<a href="#" data-toggle="modal" data-target="#add_category_modal" class="btn btn-mint btn-sm rounded-pill px-4 shadow-sm">Add Category</a>
       </div>
       
       <div class="table-responsive">

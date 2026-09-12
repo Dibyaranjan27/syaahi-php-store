@@ -6,10 +6,8 @@
     
     <?php include "./templates/sidebar.php"; ?>
 
-      <div class="row">
-      	<div class="col-10">
-      		<h2>Comments</h2>
-      	</div>
+      <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
+      	<h2>Comments</h2>
       </div>
       
       <div class="table-responsive">
