@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 session_start();
 require_once('../includes/db.php');
 require_once('../includes/EmailService.php');
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 include('../includes/head.php');
 ?>
 <div class="d-flex align-items-center justify-content-center min-vh-100 py-5" style="background: linear-gradient(135deg, #fdf4ff 0%, #f3e8ff 100%);">
-    <div class="syaahi-form-card bg-white p-5 rounded shadow" style="width: 100%; max-width: 450px;">
+    <div class="syaahi-form-card bg-white p-5 rounded shadow mx-3" style="width: 100%; max-width: 450px;">
         <div class="text-center mb-4">
             <h1 class="fw-bold" style="color: var(--dark-purple); font-family: 'WindSong', cursive; font-size: 4rem; line-height: 1;">Syaahi <span style="font-size: 2.5rem;">🌸</span></h1>
             <p class="text-muted">Forgot your password? No worries!</p>
