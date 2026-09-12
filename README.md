@@ -124,171 +124,15 @@ If you have any questions or suggestions, feel free to contact me. I'd be happy 
 ## 🖥️ Screenshots
 
 <details>
-<summary><b>Click to view all 29 Screenshots! 📸</b></summary>
+<summary><b>Click to view all 30 Screenshots! 📸</b></summary>
 
 <div align="center">
   <table>
     <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/about.png" alt="ABOUT" width="400">
-        <br/>
-        <em>ABOUT</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-add-categories.png" alt="ADMIN ADD CATEGORIES" width="400">
-        <br/>
-        <em>ADMIN ADD CATEGORIES</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-addproduct.png" alt="ADMIN ADDPRODUCT" width="400">
-        <br/>
-        <em>ADMIN ADDPRODUCT</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-admin.png" alt="ADMIN ADMIN" width="400">
-        <br/>
-        <em>ADMIN ADMIN</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-categories-deltre-popup.png" alt="ADMIN CATEGORIES DELTRE POPUP" width="400">
-        <br/>
-        <em>ADMIN CATEGORIES DELTRE POPUP</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-categories.png" alt="ADMIN CATEGORIES" width="400">
-        <br/>
-        <em>ADMIN CATEGORIES</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-comment.png" alt="ADMIN COMMENT" width="400">
-        <br/>
-        <em>ADMIN COMMENT</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-dashboard.png" alt="ADMIN DASHBOARD" width="400">
-        <br/>
-        <em>ADMIN DASHBOARD</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-editprofile.png" alt="ADMIN EDITPROFILE" width="400">
-        <br/>
-        <em>ADMIN EDITPROFILE</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-feedback.png" alt="ADMIN FEEDBACK" width="400">
-        <br/>
-        <em>ADMIN FEEDBACK</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-login.png" alt="ADMIN LOGIN" width="400">
-        <br/>
-        <em>ADMIN LOGIN</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-product.png" alt="ADMIN PRODUCT" width="400">
-        <br/>
-        <em>ADMIN PRODUCT</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/admin-profile.png" alt="ADMIN PROFILE" width="400">
-        <br/>
-        <em>ADMIN PROFILE</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/blog-listing.png" alt="BLOG LISTING" width="400">
-        <br/>
-        <em>BLOG LISTING</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/blog-manage.png" alt="BLOG MANAGE" width="400">
-        <br/>
-        <em>BLOG MANAGE</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/blog-post.png" alt="BLOG POST" width="400">
-        <br/>
-        <em>BLOG POST</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/cart.png" alt="CART" width="400">
-        <br/>
-        <em>CART</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/change-password.png" alt="CHANGE PASSWORD" width="400">
-        <br/>
-        <em>CHANGE PASSWORD</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/checkout.png" alt="CHECKOUT" width="400">
-        <br/>
-        <em>CHECKOUT</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/contact.png" alt="CONTACT" width="400">
-        <br/>
-        <em>CONTACT</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/forgot-password.png" alt="FORGOT PASSWORD" width="400">
-        <br/>
-        <em>FORGOT PASSWORD</em>
-      </td>
-      <td align="center">
+      <td align="center" rowspan="2">
         <img src="src/assets/img/screenshots/homepage.png" alt="HOMEPAGE" width="400">
         <br/>
         <em>HOMEPAGE</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/login.png" alt="LOGIN" width="400">
-        <br/>
-        <em>LOGIN</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/orders.png" alt="ORDERS" width="400">
-        <br/>
-        <em>ORDERS</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/product-detail.png" alt="PRODUCT DETAIL" width="400">
-        <br/>
-        <em>PRODUCT DETAIL</em>
-      </td>
-      <td align="center">
-        <img src="src/assets/img/screenshots/profile.png" alt="PROFILE" width="400">
-        <br/>
-        <em>PROFILE</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="src/assets/img/screenshots/register.png" alt="REGISTER" width="400">
-        <br/>
-        <em>REGISTER</em>
       </td>
       <td align="center">
         <img src="src/assets/img/screenshots/shop.png" alt="SHOP" width="400">
@@ -298,11 +142,173 @@ If you have any questions or suggestions, feel free to contact me. I'd be happy 
     </tr>
     <tr>
       <td align="center">
+        <img src="src/assets/img/screenshots/about.png" alt="ABOUT" width="400">
+        <br/>
+        <em>ABOUT</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/img/screenshots/product-detail.png" alt="PRODUCT DETAIL" width="400">
+        <br/>
+        <em>PRODUCT DETAIL</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/contact.png" alt="CONTACT" width="400">
+        <br/>
+        <em>CONTACT</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/img/screenshots/blog-listing.png" alt="BLOG LISTING" width="400">
+        <br/>
+        <em>BLOG LISTING</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/blog-manage.png" alt="BLOG MANAGE" width="400">
+        <br/>
+        <em>BLOG MANAGE</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/img/screenshots/blog-post.png" alt="BLOG POST" width="400">
+        <br/>
+        <em>BLOG POST</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/profile.png" alt="PROFILE" width="400">
+        <br/>
+        <em>PROFILE</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
         <img src="src/assets/img/screenshots/wishlist.png" alt="WISHLIST" width="400">
         <br/>
         <em>WISHLIST</em>
       </td>
-      <td></td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/orders.png" alt="ORDERS" width="400">
+        <br/>
+        <em>ORDERS</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/img/screenshots/cart.png" alt="CART" width="400">
+        <br/>
+        <em>CART</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/checkout.png" alt="CHECKOUT" width="400">
+        <br/>
+        <em>CHECKOUT</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/img/screenshots/admin-dashboard.png" alt="ADMIN DASHBOARD" width="400">
+        <br/>
+        <em>ADMIN DASHBOARD</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/admin-admin.png" alt="ADMIN ADMIN" width="400">
+        <br/>
+        <em>ADMIN ADMIN</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/img/screenshots/admin-profile.png" alt="ADMIN PROFILE" width="400">
+        <br/>
+        <em>ADMIN PROFILE</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/admin-editprofile.png" alt="ADMIN EDITPROFILE" width="400">
+        <br/>
+        <em>ADMIN EDITPROFILE</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/img/screenshots/admin-categories.png" alt="ADMIN CATEGORIES" width="400">
+        <br/>
+        <em>ADMIN CATEGORIES</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/admin-add-categories.png" alt="ADMIN ADD CATEGORIES" width="400">
+        <br/>
+        <em>ADMIN ADD CATEGORIES</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/img/screenshots/admin-product.png" alt="ADMIN PRODUCT" width="400">
+        <br/>
+        <em>ADMIN PRODUCT</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/admin-addproduct.png" alt="ADMIN ADDPRODUCT" width="400">
+        <br/>
+        <em>ADMIN ADDPRODUCT</em>
+      </td>
+    </tr>
+    <tr>
+    <td align="center">
+        <img src="src/assets/img/screenshots/admin-comment.png" alt="ADMIN COMMENT" width="400">
+        <br/>
+        <em>ADMIN COMMENT</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/admin-feedback.png" alt="ADMIN FEEDBACK" width="400">
+        <br/>
+        <em>ADMIN FEEDBACK</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/img/screenshots/login.png" alt="LOGIN" width="400">
+        <br/>
+        <em>LOGIN</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/forgot-password.png" alt="FORGOT PASSWORD" width="400">
+        <br/>
+        <em>FORGOT PASSWORD</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/img/screenshots/register.png" alt="REGISTER" width="400">
+        <br/>
+        <em>REGISTER</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/admin-login.png" alt="ADMIN LOGIN" width="400">
+        <br/>
+        <em>ADMIN LOGIN</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" rowspan="2">
+        <img src="src/assets/img/screenshots/change-password.png" alt="CHANGE PASSWORD" width="400">
+        <br/>
+        <em>CHANGE PASSWORD</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/img/screenshots/admin-categories-deltre-popup.png" alt="ADMIN CATEGORIES DELTRE POPUP" width="400">
+        <br/>
+        <em>ADMIN CATEGORIES DELTRE POPUP</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" rowspan="2">
+        <img src="src/assets/img/screenshots/delete-blog.png" alt="DELETE BLOG POPUP" width="300">
+        <br/>
+        <em>DELETE BLOG POPUP</em>
+      </td>
     </tr>
   </table>
 </div>
