@@ -5,7 +5,7 @@
 <div class="container py-5">
     <div class="row justify-content-center" style="margin-top: 50px;">
         <div class="col-12 col-md-8 col-lg-5">
-            <div class="syaahi-form-card fade-in-on-scroll">
+            <div class="syaahi-form-card">
                 <h3 class="form-title">Admin Login 🔒</h3>
                 <p class="text-center text-muted mb-4">Please enter your credentials to access the dashboard.</p>
                 
