@@ -14,12 +14,17 @@ class Credentials
 
 
 	public function createAdminAccount($name, $email, $password){
-		$q = $this->con->query("SELECT email FROM admin WHERE email = '$email'");
+		$q_stmt = $this->con->prepare("SELECT email FROM admin WHERE email = ?");
+		$q_stmt->bind_param("s", $email);
+		$q_stmt->execute();
+		$q = $q_stmt->get_result();
 		if ($q->num_rows > 0) {
 			return ['status'=> 303, 'message'=> 'Email already exists'];
 		}else{
 			$password = password_hash($password, PASSWORD_BCRYPT, ["COST"=> 8]);
-			$q = $this->con->query("INSERT INTO `admin`(`name`, `email`, `password`) VALUES ('$name','$email','$password')");
+			$q_stmt = $this->con->prepare("INSERT INTO `admin`(`name`, `email`, `password`) VALUES (?, ?, ?)");
+			$q_stmt->bind_param("sss", $name, $email, $password);
+			$q = $q_stmt->execute();
 			if ($q) {
 				return ['status'=> 202, 'message'=> 'Admin Created Successfully'];
 			}
@@ -28,7 +33,10 @@ class Credentials
 	}
 
 	public function loginAdmin($email, $password){
-		$q = $this->con->query("SELECT * FROM admin WHERE email = '$email' LIMIT 1");
+		$q_stmt = $this->con->prepare("SELECT * FROM admin WHERE email = ? LIMIT 1");
+		$q_stmt->bind_param("s", $email);
+		$q_stmt->execute();
+		$q = $q_stmt->get_result();
 		if ($q->num_rows > 0) {
 			$row = $q->fetch_assoc();
 			if (password_verify($password, $row['password'])) {

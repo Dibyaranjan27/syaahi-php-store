@@ -13,10 +13,12 @@ class Advertisments
 	}
 
 	public function getAdvertisments(){
-		$query = $this->con->query("SELECT advertisments.AdsID,advertisments.status, advertisments.Title, advertisments.Image , advertisments.Price , advertisments.userID , users.UserName, categories.CategoryName FROM advertisments,categories,users WHERE 1 AND advertisments.categoryID=categories.CategoryID  AND advertisments.userID=users.userID");
+		$query = $this->con->prepare("SELECT advertisments.AdsID,advertisments.status, advertisments.Title, advertisments.Image , advertisments.Price , advertisments.userID , users.UserName, categories.CategoryName FROM advertisments,categories,users WHERE 1 AND advertisments.categoryID=categories.CategoryID  AND advertisments.userID=users.userID");
+		$query->execute();
+		$result = $query->get_result();
 		$ar = [];
-		if (@$query->num_rows > 0) {
-			while ($row = $query->fetch_assoc()) {
+		if (@$result->num_rows > 0) {
+			while ($row = $result->fetch_assoc()) {
 				$ar[] = $row;
 			}
 			return ['status'=> 202, 'message'=> $ar];
@@ -26,8 +28,9 @@ class Advertisments
 	
 	public function deleteAdvertisment($AdvertismentID){
 		if ($AdvertismentID != null) {
-			$q = $this->con->query("DELETE FROM advertisments WHERE AdsID = '$AdvertismentID'");
-			if ($q) {
+			$q = $this->con->prepare("DELETE FROM advertisments WHERE AdsID = ?");
+			$q->bind_param("s", $AdvertismentID);
+			if ($q->execute()) {
 				return ['status'=> 202, 'message'=> 'Advertisment removed'];
 			}else{
 				return ['status'=> 202, 'message'=> 'You must delete comments and reports related to this ad before'];
@@ -41,8 +44,9 @@ class Advertisments
 
 	public function hideAdvertisment($AdvertismentID){
 		if ($AdvertismentID != null) {
-			$q = $this->con->query("UPDATE advertisments SET status = 0 WHERE AdsID = '$AdvertismentID'");
-			if ($q) {
+			$q = $this->con->prepare("UPDATE advertisments SET status = 0 WHERE AdsID = ?");
+			$q->bind_param("s", $AdvertismentID);
+			if ($q->execute()) {
 				return ['status'=> 202, 'message'=> 'Advertisment updated'];
 			}else{
 				return ['status'=> 202, 'message'=> 'Failed'];
@@ -56,8 +60,9 @@ class Advertisments
 
 	public function unhideAdvertisment($AdvertismentID){
 		if ($AdvertismentID != null) {
-			$q = $this->con->query("UPDATE advertisments SET status = 1 WHERE AdsID = '$AdvertismentID'");
-			if ($q) {
+			$q = $this->con->prepare("UPDATE advertisments SET status = 1 WHERE AdsID = ?");
+			$q->bind_param("s", $AdvertismentID);
+			if ($q->execute()) {
 				return ['status'=> 202, 'message'=> 'Advertisment updated'];
 			}else{
 				return ['status'=> 202, 'message'=> 'Failed'];

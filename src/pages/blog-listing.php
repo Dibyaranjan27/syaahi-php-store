@@ -15,8 +15,21 @@ include('../includes/head.php');
     </div>
     
     <?php
-    $query = "SELECT bp.*, u.UserName FROM blog_posts bp JOIN users u ON bp.author_id = u.UserID ORDER BY bp.created_at DESC";
-    $result = $conn->query($query);
+    $limit = 9;
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    if ($page < 1) $page = 1;
+    $offset = ($page - 1) * $limit;
+
+    $countQuery = "SELECT COUNT(*) as total FROM blog_posts";
+    $countResult = $conn->query($countQuery);
+    $totalRows = $countResult->fetch_assoc()['total'];
+    $totalPages = ceil($totalRows / $limit);
+
+    $query = "SELECT bp.*, u.UserName FROM blog_posts bp JOIN users u ON bp.author_id = u.UserID ORDER BY bp.created_at DESC LIMIT ? OFFSET ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ii", $limit, $offset);
+    $stmt->execute();
+    $result = $stmt->get_result();
     
     if($result && $result->num_rows > 0):
     ?>
@@ -39,6 +52,26 @@ include('../includes/head.php');
         </div>
         <?php endwhile; ?>
     </div>
+    
+    <!-- Pagination -->
+    <?php if ($totalPages > 1): ?>
+    <nav class="mt-5 fade-in-on-scroll">
+        <ul class="pagination justify-content-center">
+            <li class="page-item <?php echo $page <= 1 ? 'disabled' : ''; ?>">
+                <a class="page-link" href="?page=<?php echo $page - 1; ?>">Previous</a>
+            </li>
+            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <li class="page-item <?php echo $page == $i ? 'active' : ''; ?>">
+                <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+            </li>
+            <?php endfor; ?>
+            <li class="page-item <?php echo $page >= $totalPages ? 'disabled' : ''; ?>">
+                <a class="page-link" href="?page=<?php echo $page + 1; ?>">Next</a>
+            </li>
+        </ul>
+    </nav>
+    <?php endif; ?>
+
     <?php else: ?>
     <div class="text-center">
         <div class="speech-bubble d-inline-block">No blog posts yet. Be the first to write one! ✍️</div>

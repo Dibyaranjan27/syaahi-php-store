@@ -33,13 +33,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProductId'])) {
     // Handle image upload
     $existingImgPath = '$imgPath';
     $imgPath = '';
-    if (isset($_FILES['ImgPath']) && $_FILES['ImgPath']['error'] == 0) {
-        $target_dir = 'ProductImages/';
-        $target_file = $target_dir . basename($_FILES['ImgPath']['name']);
-        if (move_uploaded_file($_FILES['ImgPath']['tmp_name'], "../".$target_file)) {
-            $imgPath = $target_file;
+    	if (isset($_FILES['ImgPath']) && $_FILES['ImgPath']['error'] == 0) {
+        $validMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mime = finfo_file($finfo, $_FILES['ImgPath']['tmp_name']);
+        finfo_close($finfo);
+
+        if (in_array($mime, $validMimeTypes)) {
+            $target_dir = 'ProductImages/';
+            $target_file = $target_dir . basename($_FILES['ImgPath']['name']);
+            if (move_uploaded_file($_FILES['ImgPath']['tmp_name'], "../".$target_file)) {
+                $imgPath = $target_file;
+            } else {
+                $message = "Sorry, there was an error uploading your file.";
+            }
         } else {
-            $message = "Sorry, there was an error uploading your file.";
+            $message = "Invalid file type. Only JPG, PNG, and WEBP are allowed.";
         }
     } else {
         // Use existing image path if new image not uploaded
@@ -48,12 +57,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProductId'])) {
 
     // Continue with the update if no error
     if (!$message) {
-        $sql = "UPDATE products SET Title = '$title', Description = '$description', IsAvailable = '$isAvailable', Price = '$price', ImgPath = '$imgPath', Rating = '$rating', Brand = '$brand', Size = '$size', Specification = '$specification', Categories = '$categories' WHERE ProductId = '$productId'";
-        if (mysqli_query($conShop, $sql)) {
+        $sql = "UPDATE products SET Title = ?, Description = ?, IsAvailable = ?, Price = ?, ImgPath = ?, Rating = ?, Brand = ?, Size = ?, Specification = ?, Categories = ? WHERE ProductId = ?";
+        $stmt = $conShop->prepare($sql);
+        $stmt->bind_param("ssssssssssi", $title, $description, $isAvailable, $price, $imgPath, $rating, $brand, $size, $specification, $categories, $productId);
+        if ($stmt->execute()) {
             header('Location: addproduct.php');
             exit;
         } else {
-            $message = "Error updating record: " . mysqli_error($conShop);
+            $message = "Error updating record: " . $stmt->error;
         }
     }
 }
@@ -61,9 +72,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProductId'])) {
 // Fetch existing product details for editing
 if ($productId && $_SERVER['REQUEST_METHOD'] != 'POST') {
     $productId = mysqli_real_escape_string($conShop, $productId);
-    $query = "SELECT * FROM products WHERE ProductId = '$productId'";
-    $result = mysqli_query($conShop, $query);
-    $product = mysqli_fetch_assoc($result);
+    $query = "SELECT * FROM products WHERE ProductId = ?";
+    $stmt = $conShop->prepare($query);
+    $stmt->bind_param("i", $productId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $product = $result->fetch_assoc();
 }
 
 ?>

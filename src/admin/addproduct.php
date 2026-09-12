@@ -22,31 +22,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Handle file upload
     $imgPath = '';
     if (isset($_FILES['ImgPath']) && $_FILES['ImgPath']['error'] == 0) {
-        $target_dir = "../ProductImages/"; // Adjust the path as needed
-        $target_file = $target_dir . basename($_FILES['ImgPath']['name']);
-        if (move_uploaded_file($_FILES['ImgPath']['tmp_name'], $target_file)) {
-            $imgPath = $target_file;
+        $validMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mime = finfo_file($finfo, $_FILES['ImgPath']['tmp_name']);
+        finfo_close($finfo);
+
+        if (in_array($mime, $validMimeTypes)) {
+            $target_dir = "../ProductImages/"; // Adjust the path as needed
+            $target_file = $target_dir . basename($_FILES['ImgPath']['name']);
+            if (move_uploaded_file($_FILES['ImgPath']['tmp_name'], $target_file)) {
+                $imgPath = $target_file;
+            } else {
+                $message = "Sorry, there was an error uploading your file.";
+            }
         } else {
-            $message = "Sorry, there was an error uploading your file.";
+            $message = "Invalid file type. Only JPG, PNG, and WEBP are allowed.";
         }
     }
 
     if (!$message) {
         // Ensure column names are correct as per your database schema
-        $sql = "INSERT INTO products (Title, Description, IsAvailable, Price, ImgPath, Rating, Brand, Size, Specification, Categories) VALUES ('$title', '$description', '$isAvailable', '$price', '$imgPath', '$rating', '$brand', '$size', '$specification', '$categories')";
-        if (mysqli_query($conShop, $sql)) {
+        $sql = "INSERT INTO products (Title, Description, IsAvailable, Price, ImgPath, Rating, Brand, Size, Specification, Categories) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conShop->prepare($sql);
+        $stmt->bind_param("sssdssssss", $title, $description, $isAvailable, $price, $imgPath, $rating, $brand, $size, $specification, $categories);
+        if ($stmt->execute()) {
             // Redirect to the same page after successful insertion
             header('Location: addproduct.php');
             exit;
         } else {
-            $message = "Error: " . mysqli_error($conShop);
+            $message = "Error: " . $stmt->error;
         }
     }
 }
 
 // Fetch products after potential redirection
 $query = "SELECT * FROM products";
-$products = mysqli_query($conShop, $query);
+$stmt = $conShop->prepare($query);
+$stmt->execute();
+$products = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -88,8 +101,10 @@ $products = mysqli_query($conShop, $query);
                 <tbody>
                     <?php
                     $query = "SELECT * FROM products";
-                    $products = mysqli_query($conShop, $query);
-                    while ($product = mysqli_fetch_assoc($products)) { ?>
+                    $stmt = $conShop->prepare($query);
+                    $stmt->execute();
+                    $products = $stmt->get_result();
+                    while ($product = $products->fetch_assoc()) { ?>
                         <tr>
                             <td><?php echo $product['ProductId']; ?></td>
                             <td><?php echo $product['Title']; ?></td>
@@ -150,10 +165,13 @@ $products = mysqli_query($conShop, $query);
 
         // Your existing form handling code
 
-        if (mysqli_query($conShop, $sql)) {
+        $sql = "INSERT INTO products (Title, Description, IsAvailable, Price, ImgPath, Rating, Brand, Size, Specification, Categories) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conShop->prepare($sql);
+        $stmt->bind_param("sssdssssss", $title, $description, $isAvailable, $price, $imgPath, $rating, $brand, $size, $specification, $categories);
+        if ($stmt->execute()) {
             echo "New product added successfully";
         } else {
-            echo "Error: " . mysqli_error($conShop); // This will print SQL error if any
+            echo "Error: " . $stmt->error;
         }
     }
     ?>

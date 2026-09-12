@@ -9,26 +9,48 @@ $pageTitle = 'Checkout';
 $userId = $_SESSION['loggedInUserId'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once('../vendor/autoload.php');
+    \Stripe\Stripe::setApiKey(getenv('STRIPE_SECRET_KEY') ?: 'sk_test_51MockKeyThisIsJustATestKeyForSyaahi');
+
     $stmt = $conn->prepare("SELECT * FROM shoppingcart WHERE clientId = ?");
     $stmt->bind_param("i", $userId);
     $stmt->execute();
     $cart_result = $stmt->get_result();
     
     if ($cart_result->num_rows > 0) {
-        $orderId = uniqid('ORD-');
-        $date = date('Y-m-d H:i:s');
+        $line_items = [];
         
         while ($item = $cart_result->fetch_assoc()) {
-            $insert_order = $conn->prepare("INSERT INTO orders (orderId, ProductId, Price, Quantity, DateOfOrder, clientId) VALUES (?, ?, ?, ?, ?, ?)");
-            $insert_order->bind_param("siiisi", $orderId, $item['ProductId'], $item['Price'], $item['Quantity'], $date, $userId);
-            $insert_order->execute();
+            $pStmt = $conn->prepare("SELECT Title FROM products WHERE ProductId = ?");
+            $pStmt->bind_param("i", $item['ProductId']);
+            $pStmt->execute();
+            $title = $pStmt->get_result()->fetch_assoc()['Title'];
+            
+            $line_items[] = [
+                'price_data' => [
+                    'currency' => 'inr',
+                    'product_data' => [
+                        'name' => $title,
+                    ],
+                    'unit_amount' => $item['Price'] * 100,
+                ],
+                'quantity' => $item['Quantity'],
+            ];
         }
         
-        $clear_cart = $conn->prepare("DELETE FROM shoppingcart WHERE clientId = ?");
-        $clear_cart->bind_param("i", $userId);
-        $clear_cart->execute();
+        // Protocol and host
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+        $domain = "{$protocol}://{$_SERVER['HTTP_HOST']}";
+
+        $checkout_session = \Stripe\Checkout\Session::create([
+            'payment_method_types' => ['card'],
+            'line_items' => $line_items,
+            'mode' => 'payment',
+            'success_url' => $domain . '/src/pages/checkout-success.php?session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url' => $domain . '/src/pages/cart.php',
+        ]);
         
-        header("Location: orders.php?success=1");
+        header("Location: " . $checkout_session->url);
         exit();
     }
 }

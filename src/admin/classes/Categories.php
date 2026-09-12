@@ -13,12 +13,16 @@ class Categories
 	}
 	
 	public function addCategory($name){
-		$q = $this->con->query("SELECT * FROM categories WHERE CategoryName = '$name' LIMIT 1");
-		if ($q->num_rows > 0) {
+		$q = $this->con->prepare("SELECT * FROM categories WHERE CategoryName = ? LIMIT 1");
+		$q->bind_param("s", $name);
+		$q->execute();
+		$result = $q->get_result();
+		if ($result->num_rows > 0) {
 			return ['status'=> 303, 'message'=> 'Category already exists'];
 		}else{
-			$q = $this->con->query("INSERT INTO categories (CategoryName) VALUES ('$name')");
-			if ($q) {
+			$q = $this->con->prepare("INSERT INTO categories (CategoryName) VALUES (?)");
+			$q->bind_param("s", $name);
+			if ($q->execute()) {
 				return ['status'=> 202, 'message'=> 'New Category added Successfully'];
 			}else{
 				return ['status'=> 303, 'message'=> 'Failed'];
@@ -27,7 +31,9 @@ class Categories
 	}	
 
 	public function getCategories(){
-		$query = $this->con->query("SELECT categories.CategoryID , categories.CategoryName , (SELECT COUNT(AdsID) FROM advertisments WHERE categories.CategoryID=advertisments.CategoryID) AS c FROM categories WHERE 1");
+		$stmt = $this->con->prepare("SELECT categories.CategoryID , categories.CategoryName , (SELECT COUNT(AdsID) FROM advertisments WHERE categories.CategoryID=advertisments.CategoryID) AS c FROM categories WHERE 1");
+		$stmt->execute();
+		$query = $stmt->get_result();
 		$ar = [];
 		if (@$query->num_rows > 0) {
 			while ($row = $query->fetch_assoc()) {
@@ -41,8 +47,9 @@ class Categories
 	
 	public function deleteCategory($CategoryID){
 		if ($CategoryID != null) {
-			$q = $this->con->query("DELETE FROM categories WHERE CategoryID='$CategoryID'");
-			if ($q) {
+			$q = $this->con->prepare("DELETE FROM categories WHERE CategoryID=?");
+			$q->bind_param("s", $CategoryID);
+			if ($q->execute()) {
 				return ['status'=> 202, 'message'=> 'Category removed'];
 			}else{
 				return ['status'=> 202, 'message'=> 'You must delete the advertisments related to this category before'];
@@ -57,8 +64,9 @@ class Categories
 	public function updateCategory($post = null){
 		extract($post);
 		if (!empty($CategoryID) && !empty($CategoryName)) {
-			$q = $this->con->query("UPDATE categories SET CategoryName = '$CategoryName' WHERE CategoryID = '$CategoryID'");
-			if ($q) {
+			$q = $this->con->prepare("UPDATE categories SET CategoryName = ? WHERE CategoryID = ?");
+			$q->bind_param("ss", $CategoryName, $CategoryID);
+			if ($q->execute()) {
 				return ['status'=> 202, 'message'=> 'Category updated'];
 			}else{
 				return ['status'=> 202, 'message'=> 'Failed'];

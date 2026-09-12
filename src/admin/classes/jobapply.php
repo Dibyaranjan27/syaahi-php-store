@@ -13,7 +13,9 @@ class jobapply
 	}
 
 	public function getjobapply(){
-		$query = $this->con->query("SELECT * FROM jobapply WHERE 1");
+		$stmt = $this->con->prepare("SELECT * FROM jobapply WHERE 1");
+		$stmt->execute();
+		$query = $stmt->get_result();
 		$ar = [];
 		if (@$query->num_rows > 0) {
 			while ($row = $query->fetch_assoc()) {

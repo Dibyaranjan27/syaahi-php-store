@@ -13,7 +13,9 @@ class report
 	}
 
 	public function getreport(){
-		$query = $this->con->query("SELECT report.UserID,report.AdsID,report.details,report.Date,users.UserName AS un,advertisments.Title AS an FROM advertisments,report,users WHERE 1 AND report.UserID=users.UserID AND report.AdsID=advertisments.AdsID");
+		$stmt = $this->con->prepare("SELECT report.UserID,report.AdsID,report.details,report.Date,users.UserName AS un,advertisments.Title AS an FROM advertisments,report,users WHERE 1 AND report.UserID=users.UserID AND report.AdsID=advertisments.AdsID");
+		$stmt->execute();
+		$query = $stmt->get_result();
 		$ar = [];
 		if (@$query->num_rows > 0) {
 			while ($row = $query->fetch_assoc()) {
@@ -26,7 +28,9 @@ class report
 
 	public function deletereport($UserID,$AdsID){
 		if ($UserID != null && $AdsID != null) {
-			$q = $this->con->query("DELETE FROM report WHERE report.UserID = '$UserID' AND report.AdsID = '$AdsID'");
+			$q_stmt = $this->con->prepare("DELETE FROM report WHERE report.UserID = ?");
+			$q_stmt->bind_param("s", $UserID' AND report.AdsID = '$AdsID);
+			$q = $q_stmt->execute();
 			if ($q) {
 				return ['status'=> 202, 'message'=> 'Report removed'];
 			}else{

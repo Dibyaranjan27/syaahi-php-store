@@ -16,7 +16,9 @@ class editprofile
 	public function editAdminAccount($name, $email, $password){
 		    $id=$_SESSION['admin_id'];
 			$password = password_hash($password, PASSWORD_BCRYPT, ["COST"=> 8]);
-			$q = $this->con->query("UPDATE admin SET name = '$name',email='$email',password='$password' WHERE id = '$id'");
+			$q_stmt = $this->con->prepare("UPDATE admin SET name = ?, email = ?, password = ? WHERE id = ?");
+			$q_stmt->bind_param("ssss", $name, $email, $password, $id);
+			$q = $q_stmt->execute();
 			if ($q) {
 				return ['status'=> 202, 'message'=> 'Admin Updated Successfully'];
 			}
