@@ -9,9 +9,17 @@ $pageTitle = 'Checkout';
 $userId = $_SESSION['loggedInUserId'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $stripeKey = getenv('STRIPE_SECRET_KEY');
+    
+    // If no real Stripe key is provided, mock the checkout for local testing
+    if (!$stripeKey || strpos($stripeKey, 'sk_test_51Mock') !== false || $stripeKey === 'sk_test_123') {
+        $mockSessionId = 'cs_test_mock_' . bin2hex(random_bytes(16));
+        header("Location: checkout-success.php?session_id=" . $mockSessionId);
+        exit();
+    }
+    
     require_once('../vendor/autoload.php');
-    \Stripe\Stripe::setApiKey(getenv('STRIPE_SECRET_KEY') ?: 'sk_test_51MockKeyThisIsJustATestKeyForSyaahi');
-
+    \Stripe\Stripe::setApiKey($stripeKey);
     $stmt = $conn->prepare("SELECT * FROM shoppingcart WHERE clientId = ?");
     $stmt->bind_param("i", $userId);
     $stmt->execute();
