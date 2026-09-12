@@ -128,8 +128,11 @@ include('../includes/head.php');
                     </a>
                 </div>
                 <hr style="border-color: var(--lavender-light); margin: 24px 0;">
-                <div class="text-center">
-                    <a href="../api/logout.php" class="btn btn-outline-sakura btn-pill px-5">
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="change-password.php" class="btn btn-outline-lavender btn-pill px-4">
+                        <i class="fas fa-key nav-icon"></i> Change Password
+                    </a>
+                    <a href="../api/logout.php" class="btn btn-outline-sakura btn-pill px-4">
                         <i class="fas fa-sign-out-alt nav-icon"></i> Logout
                     </a>
                 </div>
