@@ -1,4 +1,4 @@
-<h1 align="center">?? Syaahi E-Commerce ??</h1>
+<h1 align="center">🌸 Syaahi E-Commerce 📚</h1>
 
 <p align="center">
   A cozy, pastel-themed, fully responsive e-commerce platform for books, manga, and aesthetic stationery.
@@ -13,7 +13,7 @@
 
 ---
 
-## ?? Table of Contents
+## 📖 Table of Contents
 - [The Story Behind This Project](#-the-story-behind-this-project)
 - [Key Features](#-key-features)
 - [Tech Stack](#-tech-stack)
@@ -26,28 +26,28 @@
 
 ---
 
-## ?? The Story Behind This Project
+## 📜 The Story Behind This Project
 
 **Syaahi** (which means *ink* in Hindi) started as a college live project during my college time and has evolved into a beautifully designed, modern e-commerce web application. The goal was to build a fully functional online bookstore featuring a custom pastel/kawaii design system.
 
 The project features a complete shopping experience from browsing manga and stationery to a fully functional shopping cart, secure checkout, order tracking, and even a built-in blogging platform for the community. The UI was heavily customized to be incredibly responsive, providing a native app-like experience on mobile devices with CSS-transformed card tables and elegant typography.
 
-If you think it turned out cool, feel free to drop a **star ?** or **fork it ??**!
+If you think it turned out cool, feel free to drop a **star ⭐** or **fork it 🍴**!
 
 ---
 
-## ?? Key Features
+## 📌 Key Features
 
-- ??? **Full E-Commerce Flow:** Browse products, add to cart, adjust quantities, and place orders securely.
-- ?? **Mobile-First Responsiveness:** Features a custom CSS design system that transforms complex data tables into beautiful, stacked mobile cards.
-- ?? **Pastel & Kawaii Aesthetic:** A soft, cozy UI utilizing custom Google Fonts (\WindSong\, \Carter One\, \Nunito\) and beautiful SweetAlert2 popups.
-- ?? **User Profiles & Wishlists:** Create accounts to track order history, save favorite items, and write product reviews.
-- ?? **Built-in Blog:** Share your thoughts, read community stories, and manage your own posts.
-- ?? **Admin Dashboard:** A complete backend interface for managing users, categories, and inventory.
+- 🛍️ **Full E-Commerce Flow:** Browse products, add to cart, adjust quantities, and place orders securely.
+- 📱 **Mobile-First Responsiveness:** Features a custom CSS design system that transforms complex data tables into beautiful, stacked mobile cards.
+- 🎨 **Pastel & Kawaii Aesthetic:** A soft, cozy UI utilizing custom Google Fonts ("WindSong", "Carter One", "Nunito") and beautiful SweetAlert2 popups.
+- 💜 **User Profiles & Wishlists:** Create accounts to track order history, save favorite items, and write product reviews.
+- ✍️ **Built-in Blog:** Share your thoughts, read community stories, and manage your own posts.
+- ⚙️ **Admin Dashboard:** A complete backend interface for managing users, categories, and inventory.
 
 ---
 
-## ??? Tech Stack
+## 🛠️ Tech Stack
 
 - **Frontend:** HTML5, CSS3, Bootstrap 4, jQuery, SweetAlert2
 - **Backend:** PHP 8.2
@@ -56,7 +56,7 @@ If you think it turned out cool, feel free to drop a **star ?** or **fork it ??*
 
 ---
 
-## ?? Installation and Usage
+## 🚀 Installation and Usage
 
 This project is completely Dockerized, making it incredibly easy to spin up the entire application and database locally in seconds!
 
@@ -66,59 +66,65 @@ git clone https://github.com/Dibyaranjan27/syaahi-php-store.git
 cd syaahi-php-store
 ```
 
-### **2. Set up Environment**
+### **2. Set up Environment Variables**
+Copy the example environment file and configure your API keys:
 ```sh
 cp .env.example .env
 ```
-*(You can edit the .env file if you wish to change the default database credentials).*
+Open `.env` in your code editor and update the following:
+- **Database:** Edit the database passwords if desired.
+- **Stripe:** Add your Stripe Test Secret Key and Publishable Key for payments to work.
+- **PHPMailer:** Add your Gmail address and an App Password for email verification/password resets to work.
 
-### **3. Start the Application**
+### **3. Start the Application via Docker**
+Run the following command to build the image and start the containers in the background:
 ```sh
 docker-compose up -d --build
 ```
 
 ### **4. Access the Site**
+Wait 10-15 seconds for the database to fully initialize on the first run, then visit:
 - **Syaahi Website:** [http://localhost:8080](http://localhost:8080)
-- **phpMyAdmin:** [http://localhost:8081](http://localhost:8081)
+- **phpMyAdmin (DB Manager):** [http://localhost:8081](http://localhost:8081)
 - **Admin Panel:** [http://localhost:8080/admin/](http://localhost:8080/admin/)
 
-*(See CREDENTIALS.md for default demo accounts!)*
+*(See `CREDENTIALS.md` for default demo accounts!)*
 
 ---
 
-## ?? File Structure
+## 📂 File Structure
 
-```	ext
+```text
 /syaahi-php-store
-�
-+-- docker-compose.yml      # Docker services configuration
-+-- Dockerfile              # Custom PHP+Apache image
-+-- db/                     # Database initialization scripts (init.sql)
-+-- src/                    # The main PHP source code
-�   +-- index.php           # Home page
-�   +-- includes/           # Shared components (config, db, navbar, footer)
-�   +-- pages/              # Page views (shop, cart, login, etc.)
-�   +-- api/                # Form handlers & AJAX endpoints
-�   +-- admin/              # Admin dashboard panel
-�   +-- assets/             # CSS, JS, images, webfonts
-+-- CREDENTIALS.md          # Demo login details
-+-- README.md               # This file
+│
+├── docker-compose.yml      # Docker services configuration
+├── Dockerfile              # Custom PHP+Apache image
+├── db/                     # Database initialization scripts (init.sql)
+├── src/                    # The main PHP source code
+│   ├── index.php           # Home page
+│   ├── includes/           # Shared components (config, db, navbar, footer)
+│   ├── pages/              # Page views (shop, cart, login, etc.)
+│   ├── api/                # Form handlers & AJAX endpoints
+│   ├── admin/              # Admin dashboard panel
+│   └── assets/             # CSS, JS, images, webfonts
+├── CREDENTIALS.md          # Demo login details
+└── README.md               # This file
 ```
 
 ---
 
-## ?? Contribution
+## 🤝 Contribution
 
 Feel free to contribute to this project! Fork the repository, make your improvements, and submit a pull request. All contributions are welcome.
 
-If you have any questions or suggestions, feel free to contact me. I'd be happy to help! ??
+If you have any questions or suggestions, feel free to contact me. I'd be happy to help! 😊
 
 ---
 
-## ??? Screenshots
+## 🖥️ Screenshots
 
 <details>
-<summary><b>Click to view all 29 Screenshots! ??</b></summary>
+<summary><b>Click to view all 29 Screenshots! 📸</b></summary>
 
 <div align="center">
   <table>
@@ -305,13 +311,13 @@ If you have any questions or suggestions, feel free to contact me. I'd be happy 
 
 ---
 
-## ?? License
+## 📜 License
 
 This project is open-source and available under the MIT License.
 
 ---
 
-## ?? Author
+## 💡 Author
 
 <p align="center">
 <em>Crafted with pixels & passion by</em>
