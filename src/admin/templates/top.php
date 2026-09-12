@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="../assets/css/syaahi.css?v=<?php echo time(); ?>">
 
 
-    <link href="./css/dashboard.css" rel="stylesheet">
+    <link href="./css/dashboard.css?v=<?php echo time(); ?>" rel="stylesheet">
     <style>
       body {
         background-color: #fcf9ff; /* soft pastel background */
@@ -105,6 +105,54 @@
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
+        }
+      }
+          @media (max-width: 767.98px) {
+        .table-responsive {
+            overflow-x: hidden !important;
+        }
+        .table-pastel thead {
+            display: none;
+        }
+        .table-pastel tbody, .table-pastel tr, .table-pastel td {
+            display: block;
+            width: 100%;
+        }
+        .table-pastel tr {
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #f3e8ff;
+            background-color: #fff;
+        }
+        .table-pastel td {
+            text-align: right;
+            padding-left: 45% !important;
+            position: relative;
+            border-bottom: 1px dashed #f3e8ff !important;
+        }
+        .table-pastel td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 15px;
+            width: 40%;
+            text-align: left;
+            font-weight: 600;
+            color: var(--dark-purple, #6b21a8);
+        }
+        .table-pastel td:last-child {
+            border-bottom: 0 !important;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            background: #faf5ff;
+            padding-left: 15px !important;
+        }
+        .table-pastel td:last-child::before {
+            display: none;
+        }
+        .delete-product-form {
+            margin: 0 !important;
         }
       }
     </style>

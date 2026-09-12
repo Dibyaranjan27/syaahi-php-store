@@ -102,12 +102,12 @@ $products = $stmt->get_result();
                     $products = $stmt->get_result();
                     while ($product = $products->fetch_assoc()) { ?>
                         <tr>
-                            <td><?php echo $product['ProductId']; ?></td>
-                            <td><?php echo $product['Title']; ?></td>
-                            <td><?php echo $product['Price']; ?></td>
-                            <td><?php echo $product['Brand']; ?></td>
+                            <td data-label="#"> <?php echo $product['ProductId']; ?></td>
+                            <td data-label="Title"> <?php echo $product['Title']; ?></td>
+                            <td data-label="Price"> <?php echo $product['Price']; ?></td>
+                            <td data-label="Brand"> <?php echo $product['Brand']; ?></td>
                             <!-- Add other product fields here -->
-                            <td>
+                            <td data-label="Action">
                                 <!-- Edit button opens modal -->
                                 <button type="button" class="btn btn-lavender btn-sm edit-product-btn" data-product='<?php echo htmlspecialchars(json_encode($product), ENT_QUOTES, 'UTF-8'); ?>'>Edit</button>
                                 <!-- Delete form -->

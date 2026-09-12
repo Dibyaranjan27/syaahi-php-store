@@ -18,10 +18,10 @@ $(document).ready(function(){
 					$.each(resp.message, function(index, value){
 
 						profileHTML += '<tr>'+
-									          '<td>'+value.id+'</td>'+
-									          '<td>'+value.name+'</td>'+
-									          '<td>'+value.email+'</td>'+
-											  '<td><a id="'+value.id+'" class="btn btn-sm btn-danger delete-profile"><i class="fas fa-trash-alt"></i></a></td>'+
+									          '<td data-label="#">'+value.id+'</td>'+
+									          '<td data-label="Name">'+value.name+'</td>'+
+									          '<td data-label="Email">'+value.email+'</td>'+
+											  '<td data-label="Action"><a id="'+value.id+'" class="btn btn-sm btn-danger delete-profile"><i class="fas fa-trash-alt"></i></a></td>'+
 									       '</tr>'
 
 					});

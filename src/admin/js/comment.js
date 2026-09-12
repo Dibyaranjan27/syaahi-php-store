@@ -18,13 +18,13 @@ $(document).ready(function(){
 					$.each(resp.message, function(index, value){
 
 						commentHTML += '<tr>'+
-									          '<td>'+value.commentID+'</td>'+
-									          '<td>'+value.Details+'</td>'+
-									          '<td>'+value.UserID+'</td>'+
-									          '<td>'+value.un+'</td>'+
-									          '<td>'+value.ProductId+'</td>'+
-											  '<td>'+value.an+'</td>'+
-											  '<td><a commentID="'+value.commentID+'" class="btn btn-sm btn-sakura delete-comment"><i class="fas fa-trash-alt"></i></a></td>'+
+									          '<td data-label="#">'+value.commentID+'</td>'+
+									          '<td data-label="Details">'+value.Details+'</td>'+
+									          '<td data-label="User ID">'+value.UserID+'</td>'+
+									          '<td data-label="User Name">'+value.un+'</td>'+
+									          '<td data-label="Product ID">'+value.ProductId+'</td>'+
+											  '<td data-label="Product Name">'+value.an+'</td>'+
+											  '<td data-label="Action"><a commentID="'+value.commentID+'" class="btn btn-sm btn-sakura delete-comment"><i class="fas fa-trash-alt"></i></a></td>'+
 									       '</tr>'
 
 					});

@@ -1,6 +1,6 @@
 <nav class="col-md-2 d-md-block sidebar py-3 collapse" id="mobileSidebar">
       <div class="sidebar-sticky">
-        <div class="text-center mb-4">
+        <div class="text-center mb-4 d-none d-md-block">
             <a href="index.php" style="text-decoration: none;">
                 <span style="font-family: 'WindSong', cursive; font-size: 3.5rem; color: var(--dark-purple, #3b0764);">Syaahi</span>
             </a>
