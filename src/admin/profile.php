@@ -34,4 +34,4 @@
 
 <?php include_once("./templates/footer.php"); ?>
 
-<script type="text/javascript" src="./js/profile.js"></script>
+<script type="text/javascript" src="./js/profile.js?v=<?php echo time(); ?>"></script>

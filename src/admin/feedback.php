@@ -34,4 +34,4 @@
 
 
 
-<script type="text/javascript" src="./js/feedback.js"></script>
+<script type="text/javascript" src="./js/feedback.js?v=<?php echo time(); ?>"></script>

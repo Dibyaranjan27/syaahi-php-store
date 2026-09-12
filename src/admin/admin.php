@@ -27,4 +27,4 @@
 
 <?php include "./templates/footer.php"; ?>
 
-<script type="text/javascript" src="./js/admin.js"></script>
+<script type="text/javascript" src="./js/admin.js?v=<?php echo time(); ?>"></script>

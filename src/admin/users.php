@@ -36,4 +36,4 @@
 
 
 
-<script type="text/javascript" src="./js/users.js"></script>
+<script type="text/javascript" src="./js/users.js?v=<?php echo time(); ?>"></script>

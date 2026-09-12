@@ -37,4 +37,4 @@
 
 
 
-<script type="text/javascript" src="./js/comment.js"></script>
+<script type="text/javascript" src="./js/comment.js?v=<?php echo time(); ?>"></script>

@@ -99,4 +99,4 @@
 
 
 
-<script type="text/javascript" src="./js/categories.js"></script>
+<script type="text/javascript" src="./js/categories.js?v=<?php echo time(); ?>"></script>
