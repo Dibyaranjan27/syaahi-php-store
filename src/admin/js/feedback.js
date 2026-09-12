@@ -18,10 +18,10 @@ $(document).ready(function(){
 					$.each(resp.message, function(index, value){
 
 						feedbackHTML += '<tr>'+
-									          '<td>'+value.first_name+'</td>'+
-									          '<td>'+value.last_name+'</td>'+
-									          '<td>'+value.email_address+'</td>'+
-									          '<td>'+value.comment+'</td>'+											 
+									          '<td data-label="First Name">'+value.first_name+'</td>'+
+									          '<td data-label="Last Name">'+value.last_name+'</td>'+
+									          '<td data-label="Email">'+value.email_address+'</td>'+
+									          '<td data-label="Comment">'+value.comment+'</td>'+											 
 									       '</tr>'
 
 					});
@@ -29,8 +29,7 @@ $(document).ready(function(){
 					$("#feedback_list").html(feedbackHTML);
 
 				}else if(resp.status == 303){
-					$("#feedback_list").html(resp.message);
-
+					$("#feedback_list").html('<tr><td colspan="4" class="text-center text-muted py-4"><i class="fas fa-inbox fa-2x mb-3 d-block text-black-50"></i>' + resp.message + '</td></tr>');
 				}
 
 			}

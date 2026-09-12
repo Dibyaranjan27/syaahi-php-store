@@ -6,22 +6,20 @@
     
     <?php include "./templates/sidebar.php"; ?>
 
-      <div class="row">
-      	<div class="col-10">
-      		<h2>Comments</h2>
-      	</div>
+      <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
+      	<h2>Comments</h2>
       </div>
       
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
+        <table class="table table-pastel table-borderless">
           <thead>
             <tr>
               <th>#</th>
               <th>Details</th>
               <th>User ID</th>
               <th>User Name</th>
-              <th>Ad ID</th>
-			  <th>Ad Name</th>
+              <th>Product ID</th>
+			  <th>Product Name</th>
 			  <th>Action</th>
             </tr>
           </thead>
@@ -37,4 +35,4 @@
 
 
 
-<script type="text/javascript" src="./js/comment.js"></script>
+<script type="text/javascript" src="./js/comment.js?v=<?php echo time(); ?>"></script>

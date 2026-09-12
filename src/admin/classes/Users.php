@@ -13,10 +13,12 @@ class Users
 	}
 
 	public function getUsers(){
-		$query = $this->con->query("SELECT users.UserID, users.UserName, users.Email, users.Phone, areas.areaName FROM users,areas WHERE 1 AND users.areaid=areas.areaID");
+		$query = $this->con->prepare("SELECT users.UserID, users.UserName, users.Email, users.Phone, areas.areaName FROM users,areas WHERE 1 AND users.areaid=areas.areaID");
+		$query->execute();
+		$result = $query->get_result();
 		$ar = [];
-		if (@$query->num_rows > 0) {
-			while ($row = $query->fetch_assoc()) {
+		if (@$result->num_rows > 0) {
+			while ($row = $result->fetch_assoc()) {
 				$ar[] = $row;
 			}
 			return ['status'=> 202, 'message'=> $ar];
@@ -26,8 +28,9 @@ class Users
 	
 	public function deleteUser($UserID){
 		if ($UserID != null) {
-			$q = $this->con->query("DELETE FROM users WHERE users.UserID = '$UserID'");
-			if ($q) {
+			$q = $this->con->prepare("DELETE FROM users WHERE users.UserID = ?");
+			$q->bind_param("s", $UserID);
+			if ($q->execute()) {
 				return ['status'=> 202, 'message'=> 'User removed'];
 			}else{
 				return ['status'=> 202, 'message'=> 'You must delete ads,comments and reports related to this user before.'];

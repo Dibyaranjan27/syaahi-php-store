@@ -30,10 +30,8 @@ $(document).ready(function(){
                 console.log(response);
                 var resp = $.parseJSON(response);
                 if (resp.status == 202) {
-                    $("#admin-register-form").trigger("reset");
-                    console.log(window.location);
-                    window.location.href = "http://localhost/Dibya%20Website/admin/index.php";
-
+                    $("#admin-login-form").trigger("reset");
+                    window.location.href = "index.php";
                 }else if(resp.status == 303){
                     $(".message").html('<span class="text-danger">'+resp.message+'</span>');
                 }

@@ -6,17 +6,13 @@
     
     <?php include "./templates/sidebar.php"; ?>
 
-      <div class="row">
-      	<div class="col-10">
-      		<h2>Profile</h2>
-      	</div>		
-		<div class="col-2">
-      		<a href="editprofile.php" class="btn btn-warning btn-sm">Edit Profile</a>
-      	</div>
+      <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
+      	<h2>Profile</h2>
+      	<a href="editprofile.php" class="btn btn-mint btn-sm rounded-pill px-4 shadow-sm">Edit Profile</a>
       </div>
       
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
+        <table class="table table-pastel table-borderless">
           <thead>
             <tr>
               <th>#</th>
@@ -34,4 +30,4 @@
 
 <?php include_once("./templates/footer.php"); ?>
 
-<script type="text/javascript" src="./js/profile.js"></script>
+<script type="text/javascript" src="./js/profile.js?v=<?php echo time(); ?>"></script>

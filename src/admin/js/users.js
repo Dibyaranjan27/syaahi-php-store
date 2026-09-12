@@ -18,12 +18,12 @@ $(document).ready(function(){
 					$.each(resp.message, function(index, value){
 
 						usersHTML += '<tr>'+
-									          '<td>'+value.UserID+'</td>'+
-									          '<td>'+value.UserName+'</td>'+
-									          '<td>'+value.Email+'</td>'+
-									          '<td>'+value.Phone+'</td>'+
-									          '<td>'+value.areaName+'</td>'+
-											  '<td><a UserID="'+value.UserID+'" class="btn btn-sm btn-danger delete-user"><i class="fas fa-trash-alt"></i></a></td>'+
+									          '<td data-label="#">'+value.UserID+'</td>'+
+									          '<td data-label="Name">'+value.UserName+'</td>'+
+									          '<td data-label="Email">'+value.Email+'</td>'+
+									          '<td data-label="Mobile">'+value.Phone+'</td>'+
+									          '<td data-label="Area Name">'+value.areaName+'</td>'+
+											  '<td data-label="Action"><a UserID="'+value.UserID+'" class="btn btn-sm btn-danger delete-user"><i class="fas fa-trash-alt"></i></a></td>'+
 									       '</tr>'
 
 					});
@@ -42,7 +42,16 @@ $(document).ready(function(){
 
 		var UserID = $(this).attr('UserID');
 
-		if (confirm("Are you sure to delete this user")) {
+		Swal.fire({
+            title: 'Are you sure?',
+            text: "Are you sure to delete this user",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f472b6',
+            cancelButtonColor: '#9ca3af',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
 			$.ajax({
 				url : '../admin/classes/Users.php',
 				method : 'POST',
@@ -50,16 +59,17 @@ $(document).ready(function(){
 				success : function(response){
 					var resp = $.parseJSON(response);
 					if (resp.status == 202) {
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 						getUsers();
 					}else if(resp.status == 303){
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 					}
 				}
 			})
-		}else{
-			alert('Cancelled');
+		} else {
+			Swal.fire({text: 'Cancelled', confirmButtonColor: '#c084fc'});
 		}
+        });
 	});
 
 });

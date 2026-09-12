@@ -38,9 +38,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 include('../includes/head.php');
 ?>
 <div class="d-flex align-items-center justify-content-center min-vh-100" style="background: linear-gradient(135deg, #fdf4ff 0%, #f3e8ff 100%);">
-    <div class="syaahi-form-card bg-white p-5 rounded shadow" style="width: 100%; max-width: 400px;">
+    <div class="syaahi-form-card bg-white p-5 rounded shadow mx-3" style="width: 100%; max-width: 400px;">
         <div class="text-center mb-4">
-            <h1 class="fw-bold" style="color: #6b21a8; font-family: 'Fredoka One', cursive;">Syaahi 🌸</h1>
+            <h1 class="fw-bold" style="color: var(--dark-purple); font-family: 'WindSong', cursive; font-size: 4rem; line-height: 1;">Syaahi <span style="font-size: 2.5rem;">🌸</span></h1>
             <p class="text-muted">Welcome back! Please login.</p>
         </div>
         
@@ -54,8 +54,11 @@ include('../includes/head.php');
                 <input type="email" name="email" class="form-control" required>
             </div>
             <div class="mb-4">
-                <label class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" required>
+                <div class="d-flex justify-content-between align-items-center">
+                    <label class="form-label mb-0">Password</label>
+                    <a href="forgot-password.php" style="color: #d946ef; font-size: 0.85rem; text-decoration: none;">Forgot Password?</a>
+                </div>
+                <input type="password" name="password" class="form-control mt-2" required>
             </div>
             <button type="submit" class="btn btn-lavender btn-pill w-100 mb-3">Login</button>
         </form>

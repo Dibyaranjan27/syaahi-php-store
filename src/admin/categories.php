@@ -6,22 +6,18 @@
     
     <?php include "./templates/sidebar.php"; ?>
 
-      <div class="row">
-      	<div class="col-10">
-      		<h2>Categories</h2>
-      	</div>
-		<div class="col-2">
-      		<a href="#" data-toggle="modal" data-target="#add_category_modal" class="btn btn-warning btn-sm">Add Category</a>
-      	</div>
+      <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
+      	<h2>Categories</h2>
+      	<a href="#" data-toggle="modal" data-target="#add_category_modal" class="btn btn-mint btn-sm rounded-pill px-4 shadow-sm">Add Category</a>
       </div>
       
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
+        <table class="table table-pastel table-borderless">
           <thead>
             <tr>
               <th>#</th>
               <th>Name</th>
-			  <th>Number Of Ads</th>
+			  <th>Number Of Products</th>
 			  <th>Action</th>
             </tr>
           </thead>
@@ -52,7 +48,7 @@
         		</div>
         		<input type="hidden" name="add_category" value="1">
         		<div class="col-12">
-        			<button type="button" class="btn btn-primary add-category">Add Category</button>
+        			<button type="button" class="btn btn-lavender add-category">Add Category</button>
         		</div>
         	</div>
         	
@@ -83,7 +79,7 @@
             </div>
             <input type="hidden" name="edit_category" value="1">
             <div class="col-12">
-              <button type="button" class="btn btn-primary edit-category-btn">Update Category</button>
+              <button type="button" class="btn btn-lavender edit-category-btn">Update Category</button>
             </div>
           </div>
           
@@ -99,4 +95,4 @@
 
 
 
-<script type="text/javascript" src="./js/categories.js"></script>
+<script type="text/javascript" src="./js/categories.js?v=<?php echo time(); ?>"></script>

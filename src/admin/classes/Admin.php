@@ -11,10 +11,12 @@ class Admin
 	}
 
 	public function getAdminList(){
-		$query = $this->con->query("SELECT `id`, `name`, `email` FROM `admin` WHERE 1");
+		$query = $this->con->prepare("SELECT `id`, `name`, `email` FROM `admin` WHERE 1");
+		$query->execute();
+		$result = $query->get_result();
 		$ar = [];
-		if ($query->num_rows > 0) {
-			while ($row = $query->fetch_assoc()) {
+		if ($result->num_rows > 0) {
+			while ($row = $result->fetch_assoc()) {
 				$ar[] = $row;
 			}
 			return ['status'=> 202, 'message'=> $ar];

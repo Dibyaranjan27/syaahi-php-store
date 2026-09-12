@@ -18,10 +18,10 @@ $(document).ready(function(){
 					$.each(resp.message, function(index, value){
 
 						profileHTML += '<tr>'+
-									          '<td>'+value.id+'</td>'+
-									          '<td>'+value.name+'</td>'+
-									          '<td>'+value.email+'</td>'+
-											  '<td><a id="'+value.id+'" class="btn btn-sm btn-danger delete-profile"><i class="fas fa-trash-alt"></i></a></td>'+
+									          '<td data-label="#">'+value.id+'</td>'+
+									          '<td data-label="Name">'+value.name+'</td>'+
+									          '<td data-label="Email">'+value.email+'</td>'+
+											  '<td data-label="Action"><a id="'+value.id+'" class="btn btn-sm btn-danger delete-profile"><i class="fas fa-trash-alt"></i></a></td>'+
 									       '</tr>'
 
 					});
@@ -42,7 +42,16 @@ $(document).ready(function(){
 
 		var id = $(this).attr('id');
 
-		if (confirm("Are you sure to delete this profile")) {
+		Swal.fire({
+            title: 'Are you sure?',
+            text: "Are you sure to delete this profile",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f472b6',
+            cancelButtonColor: '#9ca3af',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
 			$.ajax({
 				url : '../admin/classes/profile.php',
 				method : 'POST',
@@ -50,17 +59,18 @@ $(document).ready(function(){
 				success : function(response){
 					var resp = $.parseJSON(response);
 					if (resp.status == 202) {
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 						getprofile();
 						window.location.href = window.origin+"/zay shop/admin/login.php";
 					}else if(resp.status == 303){
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 					}
 				}
 			})
-		}else{
-			alert('Cancelled');
+		} else {
+			Swal.fire({text: 'Cancelled', confirmButtonColor: '#c084fc'});
 		}
+        });
 
 	});	
 	

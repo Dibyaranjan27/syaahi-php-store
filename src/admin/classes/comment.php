@@ -13,7 +13,9 @@ class comment
 	}
 
 	public function getcomment(){
-		$query = $this->con->query("SELECT comments.UserID,comments.AdsID,comments.Details,comments.commentID,users.UserName AS un,advertisments.Title AS an FROM advertisments,comments,users WHERE 1 AND comments.UserID=users.UserID AND comments.AdsID=advertisments.AdsID");
+		$stmt = $this->con->prepare("SELECT comments.UserID,comments.ProductId,comments.Details,comments.commentID,users.UserName AS un,products.Title AS an FROM products,comments,users WHERE 1 AND comments.UserID=users.UserID AND comments.ProductId=products.ProductId");
+		$stmt->execute();
+		$query = $stmt->get_result();
 		$ar = [];
 		if (@$query->num_rows > 0) {
 			while ($row = $query->fetch_assoc()) {
@@ -26,7 +28,9 @@ class comment
 
 	public function deletecomment($commentID){
 		if ($commentID != null) {
-			$q = $this->con->query("DELETE FROM comments WHERE comments.commentID = '$commentID'");
+			$q_stmt = $this->con->prepare("DELETE FROM comments WHERE comments.commentID = ?");
+			$q_stmt->bind_param("s", $commentID);
+			$q = $q_stmt->execute();
 			if ($q) {
 				return ['status'=> 202, 'message'=> 'Comment removed'];
 			}else{

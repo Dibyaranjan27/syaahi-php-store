@@ -26,7 +26,7 @@
 			    <input type="password" class="form-control" name="cpassword" id="cpassword" placeholder="Password">
 			  </div>
 			  <input type="hidden" name="admin_register" value="1">
-			  <button type="button" class="btn btn-primary register-btn">Register</button>
+			  <button type="button" class="btn btn-lavender register-btn">Register</button>
 			</form>
 		</div>
 	</div>
@@ -34,4 +34,4 @@
 
 <?php include "./templates/footer.php"; ?>
 
-<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="./js/main.js?v=<?php echo time(); ?>"></script>

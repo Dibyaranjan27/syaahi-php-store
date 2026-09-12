@@ -31,11 +31,31 @@ include('../includes/head.php');
     <!-- Products Grid -->
     <div class="manga-grid">
         <?php
+        // Pagination logic
+        $limit = 12;
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        if ($page < 1) $page = 1;
+        $offset = ($page - 1) * $limit;
+
+        // Get total records
         if ($categoryId > 0) {
-            $stmt = mysqli_prepare($conn, "SELECT * FROM products WHERE CategoryID = ? AND IsAvailable = 'AVAILABLE'");
-            mysqli_stmt_bind_param($stmt, "i", $categoryId);
+            $countStmt = mysqli_prepare($conn, "SELECT COUNT(*) as total FROM products WHERE CategoryID = ? AND IsAvailable = 'AVAILABLE'");
+            mysqli_stmt_bind_param($countStmt, "i", $categoryId);
         } else {
-            $stmt = mysqli_prepare($conn, "SELECT * FROM products WHERE IsAvailable = 'AVAILABLE'");
+            $countStmt = mysqli_prepare($conn, "SELECT COUNT(*) as total FROM products WHERE IsAvailable = 'AVAILABLE'");
+        }
+        mysqli_stmt_execute($countStmt);
+        $countResult = mysqli_stmt_get_result($countStmt);
+        $totalRows = mysqli_fetch_assoc($countResult)['total'];
+        $totalPages = ceil($totalRows / $limit);
+
+        // Fetch products
+        if ($categoryId > 0) {
+            $stmt = mysqli_prepare($conn, "SELECT * FROM products WHERE CategoryID = ? AND IsAvailable = 'AVAILABLE' LIMIT ? OFFSET ?");
+            mysqli_stmt_bind_param($stmt, "iii", $categoryId, $limit, $offset);
+        } else {
+            $stmt = mysqli_prepare($conn, "SELECT * FROM products WHERE IsAvailable = 'AVAILABLE' LIMIT ? OFFSET ?");
+            mysqli_stmt_bind_param($stmt, "ii", $limit, $offset);
         }
         mysqli_stmt_execute($stmt);
         $products = mysqli_stmt_get_result($stmt);
@@ -78,8 +98,28 @@ include('../includes/head.php');
         <?php endwhile; ?>
     </div>
 
-    <?php if ($idx === 0): ?>
-    <div class="text-center py-5">
+    <!-- Pagination -->
+    <?php if ($totalPages > 1): ?>
+    <nav class="mt-5 fade-in-on-scroll">
+        <ul class="pagination justify-content-center">
+            <li class="page-item <?php echo $page <= 1 ? 'disabled' : ''; ?>">
+                <a class="page-link" href="?page=<?php echo $page - 1; ?><?php echo $categoryId ? '&CategoryID='.$categoryId : ''; ?>">Previous</a>
+            </li>
+            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <li class="page-item <?php echo $page == $i ? 'active' : ''; ?>">
+                <a class="page-link" href="?page=<?php echo $i; ?><?php echo $categoryId ? '&CategoryID='.$categoryId : ''; ?>"><?php echo $i; ?></a>
+            </li>
+            <?php endfor; ?>
+            <li class="page-item <?php echo $page >= $totalPages ? 'disabled' : ''; ?>">
+                <a class="page-link" href="?page=<?php echo $page + 1; ?><?php echo $categoryId ? '&CategoryID='.$categoryId : ''; ?>">Next</a>
+            </li>
+        </ul>
+    </nav>
+    <?php endif; ?>
+    
+    <!-- Empty State -->
+    <?php if ($totalRows === 0): ?>
+    <div class="text-center w-100 py-5">
         <div class="speech-bubble d-inline-block">
             No products found in this category! 🔍
         </div>

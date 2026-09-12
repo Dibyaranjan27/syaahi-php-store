@@ -39,12 +39,22 @@ $(document).ready(function () {
       contentType: false,
       processData: false,
       success: function (response) {
-        alert(response);
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: response,
+          confirmButtonColor: '#c084fc'
+        });
         loadProducts();
         $("#add_product_modal").modal("hide");
       },
       error: function (response) {
-        alert("An error occurred.");
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'An error occurred!',
+          confirmButtonColor: '#c084fc'
+        });
       },
     });
   });

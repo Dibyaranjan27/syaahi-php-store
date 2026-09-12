@@ -6,14 +6,12 @@
     
     <?php include "./templates/sidebar.php"; ?>
 
-      <div class="row">
-      	<div class="col-10">
-      		<h2>Users</h2>
-      	</div>
+      <div class="d-flex justify-content-between flex-wrap align-items-center mb-4">
+      	<h2>Users</h2>
       </div>
       
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
+        <table class="table table-pastel table-borderless">
           <thead>
             <tr>
               <th>#</th>
@@ -36,4 +34,4 @@
 
 
 
-<script type="text/javascript" src="./js/users.js"></script>
+<script type="text/javascript" src="./js/users.js?v=<?php echo time(); ?>"></script>

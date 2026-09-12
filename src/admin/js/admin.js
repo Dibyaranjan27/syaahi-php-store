@@ -16,9 +16,9 @@ $(document).ready(function(){
 
 					$.each(resp.message, function(index, value){
 						adminHTML += '<tr>'+
-										'<td>'+ value.id +'</td>'+
-										'<td>'+ value.name +'</td>'+
-										'<td>'+ value.email +'</td>'+
+										'<td data-label="#">'+ value.id +'</td>'+
+										'<td data-label="Name">'+ value.name +'</td>'+
+										'<td data-label="Email">'+ value.email +'</td>'+
 									'</tr>';
 					});
 

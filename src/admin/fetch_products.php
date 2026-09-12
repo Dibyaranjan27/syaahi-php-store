@@ -1,8 +1,10 @@
 <?php
-include 'connection/conn.php'; // Adjust path as necessary
+require_once("../includes/db.php"); // Adjust path as necessary
 
 $sql = "SELECT * FROM products";
-$result = mysqli_query($con, $sql);
-$products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
+$products = $result->fetch_all(MYSQLI_ASSOC);
 echo json_encode($products);
 ?>

@@ -18,13 +18,13 @@ $(document).ready(function(){
 					$.each(resp.message, function(index, value){
 
 						commentHTML += '<tr>'+
-									          '<td>'+value.commentID+'</td>'+
-									          '<td>'+value.Details+'</td>'+
-									          '<td>'+value.UserID+'</td>'+
-									          '<td>'+value.un+'</td>'+
-									          '<td>'+value.AdsID+'</td>'+
-											  '<td>'+value.an+'</td>'+
-											  '<td><a commentID="'+value.commentID+'" class="btn btn-sm btn-danger delete-comment"><i class="fas fa-trash-alt"></i></a></td>'+
+									          '<td data-label="#">'+value.commentID+'</td>'+
+									          '<td data-label="Details">'+value.Details+'</td>'+
+									          '<td data-label="User ID">'+value.UserID+'</td>'+
+									          '<td data-label="User Name">'+value.un+'</td>'+
+									          '<td data-label="Product ID">'+value.ProductId+'</td>'+
+											  '<td data-label="Product Name">'+value.an+'</td>'+
+											  '<td data-label="Action"><a commentID="'+value.commentID+'" class="btn btn-sm btn-sakura delete-comment"><i class="fas fa-trash-alt"></i></a></td>'+
 									       '</tr>'
 
 					});
@@ -32,8 +32,7 @@ $(document).ready(function(){
 					$("#comment_list").html(commentHTML);
 
 				}else if(resp.status == 303){
-					$("#comment_list").html(resp.message);
-
+					$("#comment_list").html('<tr><td colspan="7" class="text-center text-muted py-4"><i class="fas fa-inbox fa-2x mb-3 d-block text-black-50"></i>' + resp.message + '</td></tr>');
 				}
 
 			}
@@ -46,7 +45,16 @@ $(document).ready(function(){
 
 		var commentID = $(this).attr('commentID');
 
-		if (confirm("Are you sure to delete this comment")) {
+		Swal.fire({
+            title: 'Are you sure?',
+            text: "Are you sure to delete this comment",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f472b6',
+            cancelButtonColor: '#9ca3af',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
 			$.ajax({
 				url : '../admin/classes/comment.php',
 				method : 'POST',
@@ -54,16 +62,17 @@ $(document).ready(function(){
 				success : function(response){
 					var resp = $.parseJSON(response);
 					if (resp.status == 202) {
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 						getcomment();
 					}else if(resp.status == 303){
-						alert(resp.message);
+						Swal.fire({text: resp.message, confirmButtonColor: '#c084fc'});
 					}
 				}
 			})
-		}else{
-			alert('Cancelled');
+		} else {
+			Swal.fire({text: 'Cancelled', confirmButtonColor: '#c084fc'});
 		}
+        });
 
 	});
 
