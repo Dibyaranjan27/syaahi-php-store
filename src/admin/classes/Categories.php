@@ -31,7 +31,7 @@ class Categories
 	}	
 
 	public function getCategories(){
-		$stmt = $this->con->prepare("SELECT categories.CategoryID , categories.CategoryName , (SELECT COUNT(AdsID) FROM advertisments WHERE categories.CategoryID=advertisments.CategoryID) AS c FROM categories WHERE 1");
+		$stmt = $this->con->prepare("SELECT categories.CategoryID , categories.CategoryName , (SELECT COUNT(ProductId) FROM products WHERE categories.CategoryID=products.CategoryID) AS c FROM categories WHERE 1");
 		$stmt->execute();
 		$query = $stmt->get_result();
 		$ar = [];

@@ -82,12 +82,12 @@ $products = $stmt->get_result();
                 <h2>Products</h2>
             </div>
             <div class="col-2">
-                <a href="#" data-toggle="modal" data-target="#add_product_modal" class="btn btn-primary btn-sm">Add Product</a>
+                <a href="#" data-toggle="modal" data-target="#add_product_modal" class="btn btn-lavender btn-sm">Add Product</a>
             </div>
         </div>
 
         <div class="table-responsive">
-            <table class="table table-striped table-sm">
+            <table class="table table-pastel table-borderless">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -113,11 +113,11 @@ $products = $stmt->get_result();
                             <!-- Add other product fields here -->
                             <td>
                                 <!-- Edit button (can link to an edit page or open a modal) -->
-                                <a href="editproduct.php?ProductId=<?php echo $product['ProductId']; ?>" class="btn btn-info btn-sm">Edit</a>
+                                <a href="editproduct.php?ProductId=<?php echo $product['ProductId']; ?>" class="btn btn-lavender btn-sm">Edit</a>
                                 <!-- Delete form -->
                                 <form action="deleteproduct.php" method="post" style="display: inline-block;">
                                     <input type="hidden" name="ProductId" value="<?php echo $product['ProductId']; ?>">
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    <button type="submit" class="btn btn-sakura btn-sm">Delete</button>
                                 </form>
                             </td>
                         </tr>

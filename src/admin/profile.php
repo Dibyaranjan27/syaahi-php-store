@@ -11,12 +11,12 @@
       		<h2>Profile</h2>
       	</div>		
 		<div class="col-2">
-      		<a href="editprofile.php" class="btn btn-warning btn-sm">Edit Profile</a>
+      		<a href="editprofile.php" class="btn btn-mint btn-sm">Edit Profile</a>
       	</div>
       </div>
       
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
+        <table class="table table-pastel table-borderless">
           <thead>
             <tr>
               <th>#</th>

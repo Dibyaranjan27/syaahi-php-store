@@ -24,8 +24,8 @@
 			    <input type="password" class="form-control" name="cpassword" id="cpassword" placeholder="Password">
 			  </div>
 			  <input type="hidden" name="admin_editprofile" value="1">
-			  <button type="button" class="btn btn-primary editprofile-btn">Save</button>
-			  <a href="profile.php" class="btn btn-primary">Cancel</a>
+			  <button type="button" class="btn btn-lavender editprofile-btn">Save</button>
+			  <a href="profile.php" class="btn btn-lavender">Cancel</a>
 			</form>
 		</div>
 	</div>

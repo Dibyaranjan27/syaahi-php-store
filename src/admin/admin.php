@@ -10,7 +10,7 @@
 
       <h2>Admins Details</h2>
       <div class="table-responsive">
-        <table class="table table-striped table-sm">
+        <table class="table table-pastel table-borderless">
           <thead>
             <tr>
               <th>#</th>

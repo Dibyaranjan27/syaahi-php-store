@@ -67,6 +67,24 @@
       .fa-trash-alt,.fa-pencil-alt{
         color: #fff;
       }
+      .table-pastel {
+        background-color: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      }
+      .table-pastel thead th {
+        background-color: var(--lavender-light, #f3e8ff);
+        color: var(--dark-purple, #6b21a8);
+        border: none;
+        padding: 15px;
+      }
+      .table-pastel tbody td {
+        vertical-align: middle;
+        padding: 15px;
+        color: #4b5563;
+        border-bottom: 1px solid #f3f4f6;
+      }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
