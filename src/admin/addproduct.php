@@ -139,17 +139,45 @@ $products = $stmt->get_result();
                 </div>
                 <div class="modal-body">
                     <form action="addproduct.php" method="post" enctype="multipart/form-data">
-                        <input type="text" name="Title" placeholder="Product Title" required>
-                        <textarea name="Description" placeholder="Product Description"></textarea>
-                        <input type="checkbox" name="IsAvailable"> Available
-                        <input type="number" step="0.01" name="Price" placeholder="Price">
-                        <input type="file" name="ImgPath">
-                        <input type="number" step="0.1" name="Rating" placeholder="Rating">
-                        <input type="text" name="Brand" placeholder="Brand">
-                        <input type="text" name="Size" placeholder="Size">
-                        <textarea name="Specification" placeholder="Specification"></textarea>
-                        <input type="text" name="Categories" placeholder="Categories">
-                        <button type="submit">Add Product</button>
+                        <div class="form-group">
+                            <input type="text" name="Title" class="form-control" placeholder="Product Title" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Description" class="form-control" placeholder="Product Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="isAvailableCheck" name="IsAvailable" checked>
+                                <label class="custom-control-label" for="isAvailableCheck">Available</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" step="0.01" name="Price" class="form-control" placeholder="Price">
+                        </div>
+                        <div class="form-group">
+                            <label>Product Image</label>
+                            <input type="file" name="ImgPath" class="form-control-file">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="number" step="0.1" name="Rating" class="form-control" placeholder="Rating">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="Brand" class="form-control" placeholder="Brand">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="Size" class="form-control" placeholder="Size">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="text" name="Categories" class="form-control" placeholder="Categories">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Specification" class="form-control" placeholder="Specification"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-lavender btn-pill w-100">Add Product</button>
                     </form>
                 </div>
             </div>

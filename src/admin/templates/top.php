@@ -22,6 +22,48 @@
 
 
     <style>
+      body {
+        background-color: #fcf9ff; /* soft pastel background */
+        font-family: 'Nunito', sans-serif;
+      }
+      .sidebar {
+        background-color: #ffffff !important;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+      }
+      .sidebar .nav-link {
+        border-radius: 50px;
+        margin: 5px 15px;
+        color: #4b5563;
+        font-weight: 600;
+        transition: all 0.2s;
+        padding: 10px 20px;
+      }
+      .sidebar .nav-link:hover, .sidebar .nav-link.active {
+        background-color: var(--lavender-light, #f3e8ff);
+        color: var(--dark-purple, #6b21a8);
+      }
+      .sidebar .nav-link i {
+        margin-right: 10px;
+        color: var(--lavender, #c084fc);
+      }
+      h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        font-family: 'Carter One', cursive;
+        color: var(--dark-purple, #3b0764);
+      }
+      .syaahi-admin-card {
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .syaahi-admin-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+      }
+      .syaahi-admin-card .card-body i {
+        font-size: 2.5rem;
+        opacity: 0.8;
+      }
+      
       .fa-trash-alt,.fa-pencil-alt{
         color: #fff;
       }

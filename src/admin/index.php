@@ -22,155 +22,116 @@ include "./templates/top.php";
 
 	    <div class="row">
 		
-		<div class="col-xl-3 col-sm-6 mb-3">
-		<div class="card text-white bg-primary o-hidden h-100">
-		<div class="card-body">
-		<span data-feather="user"></span>
-		<div class="mr-5"><b>Profile</b></div>
-		</div>
-		<a class="card-footer text-white clearfix small z-1" href="profile.php">
-		<span class="float-left">View Details</span>
-		<span class="float-right">
-		<i class="fa fa-angle-right"></i>
-		</span>
-		</a>
-		</div>
-		</div>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		
-		<div class="col-xl-3 col-sm-6 mb-3">
-		<div class="card text-white bg-primary o-hidden h-100">
-		<div class="card-body">
-		<span data-feather="users"></span>
-		<div class="mr-5"><b>Admins</b></div>
-		</div>
-		<a class="card-footer text-white clearfix small z-1" href="admin.php">
-		<span class="float-left">View Details</span>
-		<span class="float-right">
-		<i class="fa fa-angle-right"></i>
-		</span>
-		</a>
-		</div>
-		</div>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-		<div class="col-xl-3 col-sm-6 mb-3">
-		<div class="card text-white bg-primary o-hidden h-100">
-		<div class="card-body">
-		<span data-feather="users"></span>
-		<div class="mr-5"><b>Users</b></div>
-		</div>
-		<a class="card-footer text-white clearfix small z-1" href="users.php">
-		<span class="float-left">View Details</span>
-		<span class="float-right">
-		<i class="fa fa-angle-right"></i>
-		</span>
-		</a>
-		</div>
-		</div>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-		<div class="col-xl-3 col-sm-6 mb-3">
-		<div class="card text-white bg-danger o-hidden h-100">
-		<div class="card-body">
-		<span data-feather="layers"></span>
-		<div class="mr-5"><b>Categories</b></div>
-		</div>
-		<a class="card-footer text-white clearfix small z-1" href="categories.php">
-		<span class="float-left">View Details</span>
-		<span class="float-right">
-		<i class="fa fa-angle-right"></i>
-		</span>
-		</a>
-		</div>
-		</div>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		
-		<!-- <div class="col-xl-3 col-sm-6 mb-3">
-		<div class="card text-white bg-danger o-hidden h-100">
-		<div class="card-body">
-		<span data-feather="shopping-bag"></span>
-		<div class="mr-5"><b>Advertisments</b></div>
-		</div>
-		<a class="card-footer text-white clearfix small z-1" href="advertisments.php">
-		<span class="float-left">View Details</span>
-		<span class="float-right">
-		<i class="fa fa-angle-right"></i>
-		</span>
-		</a>
-		</div>
-		</div> -->
-		
-		<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-<!-- 		      
-		<div class="col-xl-3 col-sm-6 mb-3">
-		<div class="card text-white bg-danger o-hidden h-100">
-		<div class="card-body">
-		<span data-feather="file-text"></span>
-		<div class="mr-5"><b>Job Apply</b></div>
-		</div>
-		<a class="card-footer text-white clearfix small z-1" href="jobapply.php">
-		<span class="float-left">View Details</span>
-		<span class="float-right">
-		<i class="fa fa-angle-right"></i>
-		</span>
-		</a>
-		</div>
-		</div> -->
-
-		<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-		
-		<div class="col-xl-3 col-sm-6 mb-3">
-		<div class="card text-white bg-warning o-hidden h-100">
-		<div class="card-body">
-		<span data-feather="message-circle"></span>
-		<div class="mr-5"><b>Comments</b></div>
-		</div>
-		<a class="card-footer text-white clearfix small z-1" href="comment.php">
-		<span class="float-left">View Details</span>
-		<span class="float-right">
-		<i class="fa fa-angle-right"></i>
-		</span>
-		</a>
-		</div>
+		<div class="col-xl-4 col-sm-6 mb-4">
+			<a href="profile.php" class="text-decoration-none">
+				<div class="card syaahi-admin-card text-white h-100" style="background-color: var(--mint, #86efac);">
+					<div class="card-body d-flex align-items-center justify-content-between p-4">
+						<div>
+							<h4 class="mb-0">Profile</h4>
+							<small class="text-white-50">Manage your account</small>
+						</div>
+						<i class="fas fa-user-circle"></i>
+					</div>
+				</div>
+			</a>
 		</div>
 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		
-		
-		<div class="col-xl-3 col-sm-6 mb-3">
-		<div class="card text-white bg-warning o-hidden h-100">
-		<div class="card-body">
-		<span data-feather="file-text"></span>
-		<div class="mr-5"><b>Reports</b></div>
+		<div class="col-xl-4 col-sm-6 mb-4">
+			<a href="admin.php" class="text-decoration-none">
+				<div class="card syaahi-admin-card text-white h-100" style="background-color: var(--sky, #7dd3fc);">
+					<div class="card-body d-flex align-items-center justify-content-between p-4">
+						<div>
+							<h4 class="mb-0">Admins</h4>
+							<small class="text-white-50">Manage admin roles</small>
+						</div>
+						<i class="fas fa-user-shield"></i>
+					</div>
+				</div>
+			</a>
 		</div>
-		<a class="card-footer text-white clearfix small z-1" href="report.php">
-		<span class="float-left">View Details</span>
-		<span class="float-right">
-		<i class="fa fa-angle-right"></i>
-		</span>
-		</a>
-		</div>
-		</div>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-		<div class="col-xl-3 col-sm-6 mb-3">
-		<div class="card text-white bg-warning o-hidden h-100">
-		<div class="card-body">
-		<span data-feather="message-square"></span>
-		<div class="mr-5"><b>Feedbacks</b></div>
+		<div class="col-xl-4 col-sm-6 mb-4">
+			<a href="users.php" class="text-decoration-none">
+				<div class="card syaahi-admin-card text-white h-100" style="background-color: var(--sky, #7dd3fc);">
+					<div class="card-body d-flex align-items-center justify-content-between p-4">
+						<div>
+							<h4 class="mb-0">Users</h4>
+							<small class="text-white-50">Manage customers</small>
+						</div>
+						<i class="fas fa-users"></i>
+					</div>
+				</div>
+			</a>
 		</div>
-		<a class="card-footer text-white clearfix small z-1" href="feedback.php">
-		<span class="float-left">View Details</span>
-		<span class="float-right">
-		<i class="fa fa-angle-right"></i>
-		</span>
-		</a>
+
+		<div class="col-xl-4 col-sm-6 mb-4">
+			<a href="categories.php" class="text-decoration-none">
+				<div class="card syaahi-admin-card text-white h-100" style="background-color: var(--sakura, #f9a8d4);">
+					<div class="card-body d-flex align-items-center justify-content-between p-4">
+						<div>
+							<h4 class="mb-0">Categories</h4>
+							<small class="text-white-50">Organize products</small>
+						</div>
+						<i class="fas fa-layer-group"></i>
+					</div>
+				</div>
+			</a>
 		</div>
+		
+		<div class="col-xl-4 col-sm-6 mb-4">
+			<a href="addproduct.php" class="text-decoration-none">
+				<div class="card syaahi-admin-card text-white h-100" style="background-color: var(--sakura, #f9a8d4);">
+					<div class="card-body d-flex align-items-center justify-content-between p-4">
+						<div>
+							<h4 class="mb-0">Products</h4>
+							<small class="text-white-50">Add new items</small>
+						</div>
+						<i class="fas fa-box-open"></i>
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xl-4 col-sm-6 mb-4">
+			<a href="comment.php" class="text-decoration-none">
+				<div class="card syaahi-admin-card text-white h-100" style="background-color: var(--lavender, #c084fc);">
+					<div class="card-body d-flex align-items-center justify-content-between p-4">
+						<div>
+							<h4 class="mb-0">Comments</h4>
+							<small class="text-white-50">Manage reviews</small>
+						</div>
+						<i class="fas fa-comments"></i>
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xl-4 col-sm-6 mb-4">
+			<a href="report.php" class="text-decoration-none">
+				<div class="card syaahi-admin-card text-white h-100" style="background-color: var(--lavender, #c084fc);">
+					<div class="card-body d-flex align-items-center justify-content-between p-4">
+						<div>
+							<h4 class="mb-0">Reports</h4>
+							<small class="text-white-50">View analytics</small>
+						</div>
+						<i class="fas fa-chart-bar"></i>
+					</div>
+				</div>
+			</a>
+		</div>
+
+		<div class="col-xl-4 col-sm-6 mb-4">
+			<a href="feedback.php" class="text-decoration-none">
+				<div class="card syaahi-admin-card text-white h-100" style="background-color: var(--lavender, #c084fc);">
+					<div class="card-body d-flex align-items-center justify-content-between p-4">
+						<div>
+							<h4 class="mb-0">Feedbacks</h4>
+							<small class="text-white-50">User messages</small>
+						</div>
+						<i class="fas fa-envelope-open-text"></i>
+					</div>
+				</div>
+			</a>
 		</div>		
 		
 		</div>

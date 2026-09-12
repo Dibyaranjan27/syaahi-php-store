@@ -1,66 +1,58 @@
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+<nav class="col-md-2 d-none d-md-block sidebar py-3">
       <div class="sidebar-sticky">
+        <div class="text-center mb-4">
+            <span style="font-family: 'WindSong', cursive; font-size: 3rem; color: var(--dark-purple, #3b0764);">Syaahi</span>
+        </div>
         <ul class="nav flex-column">
 
           <?php 
-
             $uri = $_SERVER['REQUEST_URI']; 
             $uriAr = explode("/", $uri);
             $page = end($uriAr);
-
           ?>
           <li class="nav-item">
             <a class="nav-link <?php echo ($page == 'index.php') ? 'active' : ''; ?>" href="index.php">
-              <span data-feather="home"></span>
-              Dashboard
+              <i class="fas fa-home"></i> Dashboard
             </a>
           </li>			  
           <li class="nav-item">
             <a class="nav-link <?php echo ($page == 'profile.php') ? 'active' : ''; ?>" href="profile.php">
-              <span data-feather="user"></span>
-              Profile
+              <i class="fas fa-user-circle"></i> Profile
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link <?php echo ($page == 'admin.php') ? 'active' : ''; ?>" href="admin.php">
-              <span data-feather="users"></span>
-              Admins
+              <i class="fas fa-user-shield"></i> Admins
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link <?php echo ($page == 'users.php') ? 'active' : ''; ?>" href="users.php">
-              <span data-feather="users"></span>
-              Users
+              <i class="fas fa-users"></i> Users
             </a>
           </li>	
           <li class="nav-item">
             <a class="nav-link <?php echo ($page == 'categories.php') ? 'active' : ''; ?>" href="categories.php">
-              <span data-feather="layers"></span>
-              Categories
+              <i class="fas fa-layer-group"></i> Categories
             </a>
           </li>		  
           <li class="nav-item">
             <a class="nav-link <?php echo ($page == 'addproduct.php') ? 'active' : ''; ?>" href="addproduct.php">
-              <span data-feather="plus-square"></span>
-              Add Product
+              <i class="fas fa-box-open"></i> Products
             </a>
           </li>	
           <li class="nav-item">
             <a class="nav-link <?php echo ($page == 'comment.php') ? 'active' : ''; ?>" href="comment.php">
-              <span data-feather="message-circle"></span>
-              Comments
+              <i class="fas fa-comments"></i> Comments
             </a>
           </li>		  
           <li class="nav-item">
             <a class="nav-link <?php echo ($page == 'report.php') ? 'active' : ''; ?>" href="report.php">
-              <span data-feather="file-text"></span>
-              Reports
+              <i class="fas fa-chart-bar"></i> Reports
             </a>
           </li>		  
           <li class="nav-item">
             <a class="nav-link <?php echo ($page == 'feedback.php') ? 'active' : ''; ?>" href="feedback.php">
-              <span data-feather="message-square"></span>
-              Feedbacks
+              <i class="fas fa-envelope-open-text"></i> Feedbacks
             </a>
           </li>	  
         </ul>  
@@ -69,9 +61,8 @@
 
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2 ">Hello, <?php echo $_SESSION["admin_name"]; ?></h1>
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-4 border-bottom">
+        <h1 class="h2" style="font-family: 'Carter One', cursive; color: var(--dark-purple, #6b21a8);">Hello, <?php echo $_SESSION["admin_name"]; ?> 👋</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-
         </div>
       </div>
