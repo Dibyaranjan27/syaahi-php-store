@@ -1,4 +1,4 @@
-<h1 align="center">🌸 Syaahi E-Commerce 📚</h1>
+﻿<h1 align="center">🌸 Syaahi E-Commerce 📚</h1>
 
 <p align="center">
   A cozy, pastel-themed, fully responsive e-commerce platform for books, manga, and aesthetic stationery.
@@ -15,12 +15,12 @@
 
 ## 📖 Table of Contents
 - [The Story Behind This Project](#-the-story-behind-this-project)
-- [Screenshots](#-screenshots)
 - [Key Features](#-key-features)
 - [Tech Stack](#-tech-stack)
 - [Installation and Usage](#-installation-and-usage)
 - [File Structure](#-file-structure)
 - [Contribution](#-contribution)
+- [Screenshots](#-screenshots)
 - [License](#-license)
 - [Author](#-author)
 
@@ -28,40 +28,11 @@
 
 ## 📜 The Story Behind This Project
 
-**Syaahi** (which means *ink* in Hindi) started as a college live project and has evolved into a beautifully designed, modern e-commerce web application. The goal was to build a fully functional online bookstore featuring a custom pastel/kawaii design system.
+**Syaahi** (which means *ink* in Hindi) started as a college live project during my college time and has evolved into a beautifully designed, modern e-commerce web application. The goal was to build a fully functional online bookstore featuring a custom pastel/kawaii design system.
 
 The project features a complete shopping experience from browsing manga and stationery to a fully functional shopping cart, secure checkout, order tracking, and even a built-in blogging platform for the community. The UI was heavily customized to be incredibly responsive, providing a native app-like experience on mobile devices with CSS-transformed card tables and elegant typography.
 
 If you think it turned out cool, feel free to drop a **star ⭐** or **fork it 🍴**!
-
----
-
-## 🖥️ Screenshots
-
-*(Replace the placeholder URLs with actual screenshots of your site!)*
-<div align="center">
-  <table>
-    <tr>
-      <td align="center">
-        <img src="https://via.placeholder.com/400x250?text=Home+Page" alt="Home Page" width="400">
-        <br/>
-        <em>Home Page</em>
-      </td>
-      <td align="center">
-        <img src="https://via.placeholder.com/400x250?text=Shop+Page" alt="Shop Page" width="400">
-        <br/>
-        <em>Shop Page</em>
-      </td>
-    </tr>
-    <tr>
-      <td align="center" colspan="2">
-        <img src="https://via.placeholder.com/400x250?text=Mobile+Cart" alt="Mobile Cart" width="400">
-        <br/>
-        <em>Responsive Mobile Cart</em>
-      </td>
-    </tr>
-  </table>
-</div>
 
 ---
 
@@ -90,34 +61,34 @@ If you think it turned out cool, feel free to drop a **star ⭐** or **fork it �
 This project is completely Dockerized, making it incredibly easy to spin up the entire application and database locally in seconds!
 
 ### **1. Clone the Repository**
-```sh
+`sh
 git clone https://github.com/Dibyaranjan27/syaahi-php-store.git
 cd syaahi-php-store
-```
+`
 
 ### **2. Set up Environment**
-```sh
+`sh
 cp .env.example .env
-```
-*(You can edit the `.env` file if you wish to change the default database credentials).*
+`
+*(You can edit the .env file if you wish to change the default database credentials).*
 
 ### **3. Start the Application**
-```sh
+`sh
 docker-compose up -d --build
-```
+`
 
 ### **4. Access the Site**
 - **Syaahi Website:** [http://localhost:8080](http://localhost:8080)
 - **phpMyAdmin:** [http://localhost:8081](http://localhost:8081)
 - **Admin Panel:** [http://localhost:8080/admin/](http://localhost:8080/admin/)
 
-*(See `CREDENTIALS.md` for default demo accounts!)*
+*(See CREDENTIALS.md for default demo accounts!)*
 
 ---
 
 ## 📂 File Structure
 
-```text
+`	ext
 /syaahi-php-store
 │
 ├── docker-compose.yml      # Docker services configuration
@@ -132,7 +103,7 @@ docker-compose up -d --build
 │   └── assets/             # CSS, JS, images, webfonts
 ├── CREDENTIALS.md          # Demo login details
 └── README.md               # This file
-```
+`
 
 ---
 
@@ -141,6 +112,63 @@ docker-compose up -d --build
 Feel free to contribute to this project! Fork the repository, make your improvements, and submit a pull request. All contributions are welcome.
 
 If you have any questions or suggestions, feel free to contact me. I'd be happy to help! 😊
+
+---
+
+## 🖥️ Screenshots
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="src/assets/homepage.png" alt="Home Page" width="400">
+        <br/>
+        <em>Home Page</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/shop.png" alt="Shop Page" width="400">
+        <br/>
+        <em>Shop Page</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/cart.png" alt="Shopping Cart" width="400">
+        <br/>
+        <em>Shopping Cart</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/checkout.png" alt="Checkout Page" width="400">
+        <br/>
+        <em>Checkout Process</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/admin-dashboard.png" alt="Admin Dashboard" width="400">
+        <br/>
+        <em>Admin Dashboard</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/admin-addproduct.png" alt="Manage Products" width="400">
+        <br/>
+        <em>Manage Products (Admin)</em>
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="src/assets/admin-categories.png" alt="Manage Categories" width="400">
+        <br/>
+        <em>Manage Categories</em>
+      </td>
+      <td align="center">
+        <img src="src/assets/product-detail.png" alt="Product Detail" width="400">
+        <br/>
+        <em>Product Details Page</em>
+      </td>
+    </tr>
+  </table>
+</div>
 
 ---
 

@@ -1,4 +1,4 @@
-<nav class="col-md-2 d-none d-md-block sidebar py-3">
+<nav class="col-md-2 d-md-block sidebar py-3 collapse" id="mobileSidebar">
       <div class="sidebar-sticky">
         <div class="text-center mb-4">
             <a href="index.php" style="text-decoration: none;">

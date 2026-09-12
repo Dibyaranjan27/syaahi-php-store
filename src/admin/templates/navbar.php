@@ -2,7 +2,12 @@
     	<?php
     		if (isset($_SESSION['admin_id'])) {
     			?>
-					<a class="navbar-brand col-sm-3 col-md-2 mr-0 d-md-none" style="font-family: 'WindSong', cursive; font-size: 2rem; color: var(--dark-purple, #3b0764); padding-left: 20px;" href="index.php">Syaahi</a>
+					<div class="d-flex align-items-center d-md-none w-100">
+						<button class="navbar-toggler border-0 ml-2" type="button" data-toggle="collapse" data-target="#mobileSidebar" aria-controls="mobileSidebar" aria-expanded="false" aria-label="Toggle navigation">
+							<i class="fas fa-bars fa-lg" style="color: var(--dark-purple, #3b0764);"></i>
+						</button>
+						<a class="navbar-brand mr-auto" style="font-family: 'WindSong', cursive; font-size: 2rem; color: var(--dark-purple, #3b0764); padding-left: 10px;" href="index.php">Syaahi</a>
+					</div>
 					<ul class="navbar-nav px-3 ml-auto d-md-none">
 					<li class="nav-item text-nowrap">					
     				
