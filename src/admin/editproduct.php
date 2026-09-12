@@ -10,23 +10,23 @@ if (!isset($_SESSION['admin_id'])) {
     exit;
 }
 
-require_once("../connection/conn.php");
+require_once("../includes/db.php");
 $message = '';
 $productId = $_GET['ProductId'] ?? null;
 
 // Handle form submission for update
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProductId'])) {
     // Sanitize and process form data
-    $productId = mysqli_real_escape_string($conShop, $_POST['ProductId']);
-    $title = mysqli_real_escape_string($conShop, $_POST['Title']);
-    $description = mysqli_real_escape_string($conShop, $_POST['Description']);
+    $productId = mysqli_real_escape_string($conn, $_POST['ProductId']);
+    $title = mysqli_real_escape_string($conn, $_POST['Title']);
+    $description = mysqli_real_escape_string($conn, $_POST['Description']);
     $isAvailable = isset($_POST['IsAvailable']) ? "AVAILABLE" : "UNAVAILABLE";
-    $price = mysqli_real_escape_string($conShop, $_POST['Price']);
-    $rating = mysqli_real_escape_string($conShop, $_POST['Rating'] ?? '');
-    $brand = mysqli_real_escape_string($conShop, $_POST['Brand'] ?? '');
-    $size = mysqli_real_escape_string($conShop, $_POST['Size'] ?? '');
-    $specification = mysqli_real_escape_string($conShop, $_POST['Specification'] ?? '');
-    $categories = mysqli_real_escape_string($conShop, $_POST['Categories'] ?? '');
+    $price = mysqli_real_escape_string($conn, $_POST['Price']);
+    $rating = mysqli_real_escape_string($conn, $_POST['Rating'] ?? '');
+    $brand = mysqli_real_escape_string($conn, $_POST['Brand'] ?? '');
+    $size = mysqli_real_escape_string($conn, $_POST['Size'] ?? '');
+    $specification = mysqli_real_escape_string($conn, $_POST['Specification'] ?? '');
+    $categories = mysqli_real_escape_string($conn, $_POST['Categories'] ?? '');
 
     // ... [Sanitization for other fields]
 
@@ -52,13 +52,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProductId'])) {
         }
     } else {
         // Use existing image path if new image not uploaded
-        $imgPath = mysqli_real_escape_string($conShop, $_POST['existingImgPath']);
+        $imgPath = mysqli_real_escape_string($conn, $_POST['existingImgPath']);
     }
 
     // Continue with the update if no error
     if (!$message) {
         $sql = "UPDATE products SET Title = ?, Description = ?, IsAvailable = ?, Price = ?, ImgPath = ?, Rating = ?, Brand = ?, Size = ?, Specification = ?, Categories = ? WHERE ProductId = ?";
-        $stmt = $conShop->prepare($sql);
+        $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssssssssssi", $title, $description, $isAvailable, $price, $imgPath, $rating, $brand, $size, $specification, $categories, $productId);
         if ($stmt->execute()) {
             header('Location: addproduct.php');
@@ -71,9 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProductId'])) {
 
 // Fetch existing product details for editing
 if ($productId && $_SERVER['REQUEST_METHOD'] != 'POST') {
-    $productId = mysqli_real_escape_string($conShop, $productId);
+    $productId = mysqli_real_escape_string($conn, $productId);
     $query = "SELECT * FROM products WHERE ProductId = ?";
-    $stmt = $conShop->prepare($query);
+    $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $productId);
     $stmt->execute();
     $result = $stmt->get_result();

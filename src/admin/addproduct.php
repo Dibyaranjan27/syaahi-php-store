@@ -4,20 +4,20 @@ if (!isset($_SESSION['admin_id'])) {
     header("location:login.php");
     exit;
 }
-require_once("../connection/conn.php"); // Ensure this path is correct
+require_once("../includes/db.php"); // Ensure this path is correct
 
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Process form data and construct SQL query
-    $title = mysqli_real_escape_string($conShop, $_POST['Title']);
-    $description = mysqli_real_escape_string($conShop, $_POST['Description']);
+    $title = mysqli_real_escape_string($conn, $_POST['Title']);
+    $description = mysqli_real_escape_string($conn, $_POST['Description']);
     $isAvailable = isset($_POST['IsAvailable']) ? 1 : 0;
-    $price = mysqli_real_escape_string($conShop, $_POST['Price']);
-    $rating = mysqli_real_escape_string($conShop, $_POST['Rating'] ?? '');
-    $brand = mysqli_real_escape_string($conShop, $_POST['Brand'] ?? '');
-    $size = mysqli_real_escape_string($conShop, $_POST['Size'] ?? '');
-    $specification = mysqli_real_escape_string($conShop, $_POST['Specification'] ?? '');
-    $categories = mysqli_real_escape_string($conShop, $_POST['Categories'] ?? '');
+    $price = mysqli_real_escape_string($conn, $_POST['Price']);
+    $rating = mysqli_real_escape_string($conn, $_POST['Rating'] ?? '');
+    $brand = mysqli_real_escape_string($conn, $_POST['Brand'] ?? '');
+    $size = mysqli_real_escape_string($conn, $_POST['Size'] ?? '');
+    $specification = mysqli_real_escape_string($conn, $_POST['Specification'] ?? '');
+    $categories = mysqli_real_escape_string($conn, $_POST['Categories'] ?? '');
 
     // Handle file upload
     $imgPath = '';
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$message) {
         // Ensure column names are correct as per your database schema
         $sql = "INSERT INTO products (Title, Description, IsAvailable, Price, ImgPath, Rating, Brand, Size, Specification, Categories) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $conShop->prepare($sql);
+        $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssdssssss", $title, $description, $isAvailable, $price, $imgPath, $rating, $brand, $size, $specification, $categories);
         if ($stmt->execute()) {
             // Redirect to the same page after successful insertion
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Fetch products after potential redirection
 $query = "SELECT * FROM products";
-$stmt = $conShop->prepare($query);
+$stmt = $conn->prepare($query);
 $stmt->execute();
 $products = $stmt->get_result();
 ?>
@@ -101,7 +101,7 @@ $products = $stmt->get_result();
                 <tbody>
                     <?php
                     $query = "SELECT * FROM products";
-                    $stmt = $conShop->prepare($query);
+                    $stmt = $conn->prepare($query);
                     $stmt->execute();
                     $products = $stmt->get_result();
                     while ($product = $products->fetch_assoc()) { ?>
@@ -166,7 +166,7 @@ $products = $stmt->get_result();
         // Your existing form handling code
 
         $sql = "INSERT INTO products (Title, Description, IsAvailable, Price, ImgPath, Rating, Brand, Size, Specification, Categories) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $conShop->prepare($sql);
+        $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssdssssss", $title, $description, $isAvailable, $price, $imgPath, $rating, $brand, $size, $specification, $categories);
         if ($stmt->execute()) {
             echo "New product added successfully";
